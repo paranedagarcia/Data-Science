@@ -289,6 +289,6 @@ Información son datos que han sido organizados o preparados en una forma adecua
 
 ![Datos e información.](images/datoinfo.png) 
 
-**Tarea**
+**Tarea individual**
 
 ¿Es capaz de presentarse a sí mismo sin entregar información si no solo datos?
