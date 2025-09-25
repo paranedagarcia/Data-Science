@@ -1,0 +1,1899 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.32">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>📊 Módulo 4: SQL</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="ds-06-SQL_files/libs/clipboard/clipboard.min.js"></script>
+<script src="ds-06-SQL_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="ds-06-SQL_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="ds-06-SQL_files/libs/quarto-html/popper.min.js"></script>
+<script src="ds-06-SQL_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="ds-06-SQL_files/libs/quarto-html/anchor.min.js"></script>
+<link href="ds-06-SQL_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="ds-06-SQL_files/libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="ds-06-SQL_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="ds-06-SQL_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="ds-06-SQL_files/libs/bootstrap/bootstrap-81267100e462c21b3d6c0d5bf76a3417.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="fullcontent quarto-light">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">📊 Módulo 4: SQL</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p><img src="images/db-relacional.jpg" class="img-fluid"></p>
+<p>SQL es un lenguaje estructurado de consulta (Structured Query Language, en inglés). diseñado específicamente para administrar información en sistemas de gestión de bases de datos de tipo relacional.</p>
+<p>Puede considerarse un lenguaje de programación como tal, ya que cuenta con uso de variables, tipos de datos, elementos condicionales y lógicos. Es el estandar de facto para la gestión de datos y permite:</p>
+<ul>
+<li>Consultar, actualizar y reorganizar datos</li>
+<li>Crear y modificar la estructura de datos</li>
+<li>Controlar el acceso a los datos</li>
+</ul>
+<p>El uso de este lenguaje es altamente imperativo para todo profesional que tenga por objetivo acceder a altos volumenes y/o datos complejos.</p>
+<ul>
+<li><a href="https://www.w3schools.com/sql/">SQL tutorial</a></li>
+</ul>
+<p>La historia de SQL se origina en 1970 en un paper del Dr.&nbsp;E. F. Codd de los laboratorios de investigación de IBM, titulado “A Relational Model of Data for Large Shared Data Banks” donde propuso la representación de un modelo de datos como un conjunto de tablas. Y la vinculación entre ellas mediante relaciones, lo que se conoce actualmente como el modelo relacional.</p>
+<p>Junto con lo anterior, también propuso un lenguaje llamado <strong>DSL/Alpha</strong> para manipular los datos en las tablas relacionadas. En los laboratorios de IBM crearon sobre este un lenguaje simplificado que denominaron SQUARE. Modificaciones posteriores derivaron en uno llamado <strong>SEQUEL</strong> cuyo nombre finalmente se acortó a <strong>SQL</strong>. Finalmente se transformó en un estándar de la industria en 1986 por la ANSI (American National Standards Institute), y ya lleva más de 40 años de uso con numerosas características añadidas desde entonces.</p>
+<p>Las últimas actualizaciones en 2016 agregan nuevas características como la integración de tecnologías como XML y JSON, y la búsqueda de filas en base a un patrón definido por una expresión regular.</p>
+<p>El núcleo central de SQL se utiliza en la gran mayoría de las bases de datos comerciales y de uso gratuito. Algunas compañías han realizado ajustes a SQL para adaptarlas de mejor manera a sus productos y originado por tanto versiones “mejoradas” de SQL, como ejemplo de ello PL/SQL de Oracle y Transact-SQL de Microsoft.</p>
+<p><strong>SQL</strong> no es un acrónimo de <strong>S</strong>tandard <strong>Q</strong>uery <strong>L</strong>anguage (en español “lenguaje estándar de consulta”), es mas bien un cortamiento de la palabra SEQUEL y es el lenguaje estandarizado para la realización de consultas, es decir la extracción de datos desde las bases de datos. Es estándar ya que se utiliza en la totalidad de las bases conocidas, ya sea en forma nativa o en alguna variante según el fabricante de la base de datos.</p>
+<p>No es un lenguaje de programación propiamente tal, como lo son PHP, Python, Java o Javascript, por mencionar unos pocos. Esto debido a que presenta ciertas limitaciones. Este lenguaje define tanto los inputs com outputs que son ejecutadas por el motor de optimización de la base de datos.</p>
+<p>Un ejemplo de SQL en el siguiente bloque de código:</p>
+<div id="884a7505" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;vscode&quot;,&quot;value&quot;:{&quot;languageId&quot;:&quot;sql&quot;}}">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>SELECT nombre, apellido, rut, edad, genero</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>FROM clientes</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>WHERE edad <span class="op">&gt;</span> <span class="dv">20</span> AND genero <span class="op">=</span> <span class="st">'M'</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>ORDER BY edad ASC</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Donde: <strong>SELECT</strong> permite elegir que campos (o columnas como nombre, apellido, rut, edad y genero) queremos mostrar, <strong>FROM</strong> nos indica desde que tabla (clientes) y donde están definidos los campos. <strong>WHERE</strong> permite especificar una condición (o filtro que queremos ejecutar sobre los datos resultantes) y <strong>ORDER BY</strong> nos permite obtener una lista ordenada por edad en forma ascendente.</p>
+<p>Por tanto, el código anterior obtendrá una lista de los clientes mayores de 20 años de género masculino y entregará los resultados en forma ordenada de menor a mayor edad. La lista contendrá las variables de nombre, apellido, rut, edad y género en ese mismo orden.</p>
+<p>SQL posee entornos específicos de uso. Posee funciones para la definición de las bases de datos (DDL), el control de acceso de usuarios (DCL), la gestión de las transacciones (TCL) y el más importante o más utilizados la manipulación de datos (DML) que posee las funciones para la obtención de los datos propiamente tal.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/sql-mapa.jpg" class="img-fluid figure-img"></p>
+<figcaption>Mapa de visualización de las áreas de uso de SQL.</figcaption>
+</figure>
+</div>
+<section id="tipos-de-datos" class="level2">
+<h2 class="anchored" data-anchor-id="tipos-de-datos">Tipos de Datos</h2>
+<p>Los tipos de datos soportados lo son por la mayoría de los sistemas de bases de datos que soportan SQL, salvo algunas excepciones que son particulares a un sistema específico. Tomar en cuenta que PostgreSQL utiliza adicionalmente tipos geométricos y direcciones de redes.</p>
+<p>Tipos de datos en PostgreSQL: <a href="https://www.postgresql.org/docs/13/datatype.html" class="uri">https://www.postgresql.org/docs/13/datatype.html</a></p>
+<p>En general los tipos de datos manejados por SQL incluyen:</p>
+<ul>
+<li>Numéricos</li>
+<li>Moneda</li>
+<li>Caracter</li>
+<li>Binario</li>
+<li>Fecha/hora</li>
+<li>Lógicos (booleanos)</li>
+<li>Enumerados</li>
+<li>Geometricos</li>
+<li>Redes</li>
+<li>Bit String</li>
+<li>Texto</li>
+<li>UUID</li>
+<li>XML</li>
+<li>JSON</li>
+<li>Arreglos</li>
+<li>Compuestos (Composite)</li>
+<li>Rangos</li>
+<li>Identificadores de objetos</li>
+</ul>
+<div id="03484e1d" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;vscode&quot;,&quot;value&quot;:{&quot;languageId&quot;:&quot;sql&quot;}}">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>SELECT CAST(<span class="dv">123</span> AS DECIMAL(<span class="dv">5</span>,<span class="dv">2</span>)) <span class="op">--</span>returns <span class="fl">123.00</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>SELECT CAST(<span class="fl">12345.12</span> AS NUMERIC(<span class="dv">10</span>,<span class="dv">5</span>)) <span class="op">--</span>returns <span class="fl">12345.12000</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Numéricos</strong></p>
+<p>Los de tipo numéricos incluyen enteros y decimales con un almacenamiento desde -32768 a +32767 para “<em>smallint</em>”, hasta +9223372036854775807 para un “<em>bigint</em>”</p>
+<p><strong>Serial</strong></p>
+<p>Los tipos serial (<code>serial, smallserial, bigserial</code> no son tipos efectivos sino una convención para anotar un identificador único auto incrementado). Se usa AUTO_INCREMENT en otras bases de datos.</p>
+<pre><code>CREATE TABLE person (
+    id SERIAL
+)</code></pre>
+<p><strong><em>Char y varchar</em></strong></p>
+<pre><code>CHARACTER VARYING(n), VARCHAR(n)
+CHARACTER (n), CHAR(n)
+
+SELECT CAST('ABC' AS CHAR(10)) 
+-- 'ABC ' se completa con espacios a la izquierda
+SELECT CAST('ABC' AS VARCHAR(10)) 
+-- 'ABC' sin espacios
+SELECT CAST('ABCDEFGHIJKLMNOPQRSTUVWXYZ' AS CHAR(10)) 
+-- 'ABCDEFGHIJ' se trunca a 10 caracteres</code></pre>
+<p><strong><em>Arrays</em></strong></p>
+<pre><code>-- declarando un arreglo
+SELECT INTEGER[];
+SELECT INTEGER[3]; 
+SELECT INTEGER[][]; 
+SELECT INTEGER[3][3]; 
+SELECT INTEGER ARRAY; 
+SELECT INTEGER ARRAY[3];
+
+-- creando un arreglo
+
+SELECT '{0,1,2}';
+SELECT '{{0,1},{1,2}}';
+SELECT ARRAY[0,1,2];
+SELECT ARRAY[ARRAY[0,1],ARRAY[1,2]];</code></pre>
+<section id="definición-de-datos-ddl" class="level3">
+<h3 class="anchored" data-anchor-id="definición-de-datos-ddl">Definición de Datos (DDL)</h3>
+<p>Este lenguaje esta orientado a la definición de las estructuras de datos dentro de la base de datos. Las estructuras son las tablas, índices, vistas, etc. Las funciones principales son CREATE, ALTER y DROP (crear, modificar y eliminar respectivamente).</p>
+<section id="create" class="level4">
+<h4 class="anchored" data-anchor-id="create">CREATE</h4>
+<p><a href="https://www.postgresql.org/docs/current/sql-createtable.html" target="_blank">Ver documentación oficial</a></p>
+<p>Modo general de creación.</p>
+<pre><code>CREATE [ [ GLOBAL | LOCAL ] { TEMPORARY | TEMP } | UNLOGGED ] 
+TABLE [ IF NOT EXISTS ] table_name ( [
+  { column_name data_type [ COMPRESSION compression_method ] 
+  [ COLLATE collation ] [ column_constraint [ ... ] ]
+    | table_constraint
+    | LIKE source_table [ like_option ... ] }
+    [, ... ]
+] )
+[ INHERITS ( parent_table [, ... ] ) ]
+[ PARTITION BY { RANGE | LIST | HASH } ( { column_name | ( expression ) } 
+[ COLLATE collation ] [ opclass ] [, ... ] ) ]
+[ USING method ]
+[ WITH ( storage_parameter [= value] [, ... ] ) | WITHOUT OIDS ]
+[ ON COMMIT { PRESERVE ROWS | DELETE ROWS | DROP } ]
+[ TABLESPACE tablespace_name ]</code></pre>
+<p>Crear una base de datos.</p>
+<pre><code>CREATE DATABASE midb;
+USE midb;
+</code></pre>
+<p>Crea las tablas de la base de datos “midb”</p>
+<pre><code>CREATE TABLE mitabla ( id INT PRIMARY KEY, nombre VARCHAR(20) );
+INSERT INTO mitabla VALUES ( 1, 'Sara' );
+INSERT INTO mitabla VALUES ( 2, 'Sonia' );
+INSERT INTO mitabla VALUES ( 3, 'Daniel' );</code></pre>
+<p>Crea una tabla “persona”</p>
+<pre><code>CREATE TABLE person (
+person_id BIGINT NOT NULL, 
+last_name VARCHAR(255) NOT NULL, 
+first_name VARCHAR(255),
+age INT NOT NULL,
+PRIMARY KEY (person_id)
+);</code></pre>
+<p>Alternativamente define la clave primaria en forma directa.</p>
+<pre><code>CREATE TABLE person (
+person_id BIGINT NOT NULL PRIMARY KEY, 
+last_name VARCHAR(255) NOT NULL, 
+first_name VARCHAR(255),
+address VARCHAR(255),
+city VARCHAR(255)
+);</code></pre>
+<ul>
+<li><p><code>NOT NULL</code> - este parámetro asegurará que la columna no almacene un valor <code>NULL</code></p></li>
+<li><p><code>UNIQUE</code> - este parámetro va a prevenir que la columna almacene el mismo valor más de una vez.</p></li>
+<li><p><code>UNIQUE KEY</code> - este parámetro designará la columna como un identificador único.</p></li>
+</ul>
+<p>Crear una tabla a partir de otra existente. crea una nueva tabla a partir de los datos de “persona” con registros de personas que tengan sobre 30 años</p>
+<pre><code>CREATE TABLE people_over_30 AS SELECT * FROM persona WHERE edad &gt; 30;</code></pre>
+<p>Crea un indice en la tbla films para el campo title</p>
+<pre><code>CREATE UNIQUE INDEX title_idx ON films (title);</code></pre>
+<p>crea un indice bsado en la expresion lower(title), lo que permite buscar en base a caracteres en minusculas aunque se hayan escrito en mayúsculas. Si se omitió el nombre del indice el sistema elegirá films_lower_idx.</p>
+<pre><code>CREATE INDEX ON films ((lower(title)));</code></pre>
+<p>Crea un indice con una locacion determinada.</p>
+<pre><code>CREATE INDEX title_idx_spanish ON films (title COLLATE "es_ES");</code></pre>
+<p>Crea un indice con un ordenamiento determinado.</p>
+<pre><code>CREATE INDEX title_idx_nulls_low ON films (title NULLS FIRST);</code></pre>
+<p>crea un rol en la base de datos.</p>
+<pre><code>CREATE USER davide WITH PASSWORD 'jw8s0F4';</code></pre>
+<p>Crea un rol con una password valida hasta una fecha específica. Luego de esa fecha la password no tendrá validez.</p>
+<pre><code>CREATE ROLE miriam WITH LOGIN PASSWORD 'jw8s0F4' 
+VALID UNTIL '2005-01-01';</code></pre>
+<p>Crea un rol que puede crear bases de datos y administrar roles.</p>
+<pre><code>CREATE ROLE admin WITH CREATEDB CREATEROLE;</code></pre>
+<p>Crear una vista nombrada “clientes_ventas”.</p>
+<pre><code>CREATE VIEW clientes_ventas AS 
+SELECT * FROM clientes
+WHERE region = "RM";</code></pre>
+</section>
+<section id="alter" class="level4">
+<h4 class="anchored" data-anchor-id="alter">ALTER</h4>
+<p>Modifica la estructura de una tabla sin suprimirla y volver a crearla, como añadir columnas, eliminar columnas o cambiar definiciones de columna (por ejemplo, longitud o los valores predeterminados).</p>
+<p><a href="https://www.postgresql.org/docs/current/sql-altertable.html" target="_blank">https://www.postgresql.org/docs/current/sql-altertable.html</a></p>
+<pre><code>-- forma general
+
+ALTER TABLE [ IF EXISTS ] [ ONLY ] name [ * ]
+    action [, ... ]
+ALTER TABLE [ IF EXISTS ] [ ONLY ] name [ * ]
+    RENAME [ COLUMN ] column_name TO new_column_name
+ALTER TABLE [ IF EXISTS ] [ ONLY ] name [ * ]
+    RENAME CONSTRAINT constraint_name TO new_constraint_name
+ALTER TABLE [ IF EXISTS ] name
+    RENAME TO new_name
+ALTER TABLE [ IF EXISTS ] name
+    SET SCHEMA new_schema
+ALTER TABLE ALL IN TABLESPACE name [ OWNED BY role_name [, ... ] ]
+    SET TABLESPACE new_tablespace [ NOWAIT ]
+ALTER TABLE [ IF EXISTS ] name
+    ATTACH PARTITION partition_name { 
+    FOR VALUES partition_bound_spec | DEFAULT }
+ALTER TABLE [ IF EXISTS ] name
+    DETACH PARTITION partition_name [ CONCURRENTLY | FINALIZE ]</code></pre>
+<p>Agrega una columna direccion a la tabla clientes, como resultado todos los registros tendran ese campo nulo.</p>
+<pre><code>ALTER TABLE clientes ADD COLUMN direccion varchar(30);</code></pre>
+<p>Todos los registros existentes recibiran la fecha actual en el nuevo campo fecha los nuevos registros tendran la fecha en que se ingresen.</p>
+<pre><code>ALTER TABLE clientes
+ADD COLUMN fecha timestamp with time zone DEFAULT now();</code></pre>
+<p>Agregar una columa con un valor inicial que luego cambiará a otro valor para los nuevos registros. Los registros previamente existentes recibirán el valor ‘old’, en cambio los nuevos tendran el valor ‘current’.</p>
+<pre><code>ALTER TABLE ventas
+ADD COLUMN status varchar(30) DEFAULT 'old',
+ALTER COLUMN status SET default 'current';</code></pre>
+<p>Eliminar una columna de una tabla.</p>
+<pre><code>ALTER TABLE distributors DROP COLUMN address RESTRICT;</code></pre>
+<p>Realizar cambio en dos columnas a la vez.</p>
+<pre><code>ALTER TABLE clientes
+ALTER COLUMN direccion TYPE varchar(80),
+ALTER COLUMN nombre TYPE varchar(100);</code></pre>
+<p>Renombrar una columa o una tabla.</p>
+<pre><code>ALTER TABLE clientes RENAME COLUMN direccion TO ciudad;
+
+ALTER TABLE clientes RENAME TO personas;</code></pre>
+<p>Agregar una restriccion a una columna o remover una restricción.</p>
+<pre><code>ALTER TABLE clientes ALTER COLUMN calle SET NOT NULL;
+
+ALTER TABLE clientes ALTER COLUMN calle DROP NOT NULL;</code></pre>
+<p>Agregar una clave foránea a una tabla.</p>
+<pre><code>ALTER TABLE clientes ADD CONSTRAINT clidireccion 
+FOREIGN KEY (direccion) REFERENCES direcciones (direccion);</code></pre>
+<p>Agregar una clave primaria a un tabla.</p>
+<pre><code>ALTER TABLE clientes ADD PRIMARY KEY (cli_id);</code></pre>
+</section>
+<section id="drop" class="level4">
+<h4 class="anchored" data-anchor-id="drop">DROP</h4>
+<p>Elimina objetos de la base de datos.</p>
+<pre><code>-- elimina una tabla personas
+
+DROP TABLE personas;</code></pre>
+<p>Elimina la base de datos.</p>
+<pre><code>DROP DATABASE midb;</code></pre>
+<p>Elimina una vista llamada clientes_ventas.</p>
+<pre><code>DROP VIEW clientes_ventas;</code></pre>
+</section>
+<section id="truncate" class="level4">
+<h4 class="anchored" data-anchor-id="truncate">TRUNCATE</h4>
+<p>Elimina los datos de una tabla sin alterar la estructura de la tabla.</p>
+<pre><code>TRUNCATE TABLE clientes;</code></pre>
+</section>
+</section>
+<section id="manipulación-de-datos-dml" class="level3">
+<h3 class="anchored" data-anchor-id="manipulación-de-datos-dml">Manipulación de Datos (DML)</h3>
+<p>Un lenguaje de manipulación de datos (Data Manipulation Language, o DML en inglés) es una parte del lenguaje SQL que incluido por el sistema de gestión de base de datos permite a los usuarios llevar a cabo las tareas de consulta o manipulación de los datos, organizados por el modelo de datos adecuado.</p>
+<p>DML esta orientado por tanto a la interacción con los datos propiamente tales dentro de la base de datos. Esta interacción incluye la selección, inserción, actualización y eliminación de datos (registros dentro de una BD).</p>
+</section>
+<section id="select" class="level3">
+<h3 class="anchored" data-anchor-id="select">SELECT</h3>
+<p>SELECT permite recuperar registros desde cero o más tablas. WHERE filtra los registros antes del agrupamiento y HAVING filtra los grupos creados por GROUP BY.</p>
+<p><strong>SELECT en PostgreSQL</strong></p>
+<pre><code>[ WITH [ RECURSIVE ] with_query [, ...] ] 
+SELECT [ ALL | DISTINCT [ ON ( expression [, ...] ) ] ] * | 
+expression [ [ AS ] output_name ] [, ...] 
+[ FROM from_item [, ...] ] 
+[ WHERE condition ] 
+[ GROUP BY expression [, ...] ] 
+[ HAVING condition [, ...] ] 
+[ WINDOW window_name AS ( window_definition ) [, ...] ] 
+[ { UNION | INTERSECT | EXCEPT } [ ALL ] select ] 
+[ ORDER BY expression [ ASC | DESC | USING operator ] 
+[ NULLS { FIRST | LAST } ] [, ...] ] [ LIMIT { count | ALL } ] 
+[ OFFSET start [ ROW | ROWS ] ] [ FETCH { FIRST | NEXT } [ count ] 
+{ ROW | ROWS } ONLY ] 
+[ FOR { UPDATE | SHARE } [ OF table_name [, ...] ] 
+[ NOWAIT ] [...] ]column2, ... 
+FROM table_name;
+
+SELECT f.title, f.did, d.name, f.date_prod, f.kind
+    FROM distributors d, films f
+    WHERE f.did = d.did
+
+SELECT kind, sum(len) AS total
+    FROM films
+    GROUP BY kind
+    HAVING sum(len) &lt; interval '5 hours';
+
+SELECT *  FROM T_CLIENTES;
+SELECT *  FROM T_PEDIDOS;
+SELECT *  FROM T_PRODUCTOS;</code></pre>
+</section>
+<section id="insert" class="level3">
+<h3 class="anchored" data-anchor-id="insert">INSERT</h3>
+<p>Realiza operaciones de ingreso de valores dentro de la tabla.</p>
+<pre><code>INSERT INTO table_name VALUES (value1, value2, value3)
+
+INSERT INTO table_name (column1, column2, column3,..) 
+VALUES ( value1, value2, value3,..);
+
+insert into UTILES  (codigo, descripcion, fecalta) 
+values (1,'Lapiz',sysdate);
+insert into UTILES  (codigo, descripcion, fecalta) 
+values (2,'Goma',sysdate);
+insert into UTILES  (codigo, descripcion, fecalta) 
+values (3,'Sacapuntas',null);
+insert into UTILES  values (4,'regla',sysdate);
+insert into UTILES  values (5,'escuadra',null);
+insert into UTILES  (codigo, descripcion)  
+values (6,'transportador');
+insert into UTILES  (descripcion, codigo)  
+values ('compas',7);
+insert into UTILES  (fecalta, codigo, descripcion ) 
+values (sysdate, 8, 'estuche');</code></pre>
+</section>
+<section id="bulk-insert" class="level3">
+<h3 class="anchored" data-anchor-id="bulk-insert">BULK INSERT</h3>
+<p>Realiza operaciones de tipo INSERT desde archivos externos.</p>
+<p>SQL Server 2016 en adelante</p>
+<pre><code>BULK INSERT TableName FROM 'filePath’ 
+WITH ( FORMAT = ‘CSV’, FIELDTERMINATOR = ‘,’, 
+ROWTERMINATOR = '\n’, 
+ROWS_PER_BATCH = 10000, FIRSTROW = 2, TABLOCK );
+</code></pre>
+</section>
+<section id="update" class="level3">
+<h3 class="anchored" data-anchor-id="update">UPDATE</h3>
+<p>La sentencia UPDATE es utilizada para actualizar los datos de una tabla existente dentro de la base de datos.</p>
+<p>Se pueda actualizar desde una a varias columnas según se requiera. Si se omite la claúsula WHERE, el comando afecta a todos los registros de la tabla.</p>
+<pre><code>UPDATE estudiantes SET NAME = 'PRATIK' WHERE id = 20;
+
+UPDATE table_name SET column1 = value1, column2 = value2 
+WHERE condition;</code></pre>
+<p>donde: + table_name: nombre de la tabla + columnN: nombre de la columna + valueN: nuevo valor de la columna + condition: condición requerida para seleccionar las filas que deben ser actualizadas.</p>
+<pre><code>UPDATE nombre_tabla 
+SET nombre_columna = valor  
+[ WHERE condición [ AND condición] ]  
+
+UPDATE UTILES SET  descripcion =  ‘Regla 30 cm’ 
+  WHERE  codigo= 4;
+  
+UPDATE UTILES SET  fecalta =  sysdate;
+
+UPDATE utiles SET fecalta = sysdate, descripcion=‘regla 30 cm.’ 
+  WHERE código = 4;</code></pre>
+</section>
+<section id="delete" class="level3">
+<h3 class="anchored" data-anchor-id="delete">DELETE</h3>
+<p>Realiza operaciones de eliminación de registros desde las tablas.</p>
+<pre><code>DELETE FROM nombre_tabla 
+WHERE nombre_columna = valor
+
+DELETE FROM personas 
+WHERE nombre = 'LUIS' AND apellido1 = 'LOPEZ' 
+AND apellido2 = 'PEREZ'
+
+DELETE nombre_tabla 
+[ WHERE condición [ AND condición] ]
+
+delete UTILES WHERE  codigo= 7;
+delete UTILES;</code></pre>
+</section>
+</section>
+<section id="ejemplos" class="level2">
+<h2 class="anchored" data-anchor-id="ejemplos">Ejemplos</h2>
+<p>En el primer ejemplo de código, se devuelven todas las filas (no se especifica la cláusula WHERE) y todas las columnas (con *) de la tabla Product de la base de datos AdventureWorks2012.</p>
+<pre><code>USE AdventureWorks2012;
+GO
+SELECT *
+FROM Production.Product
+ORDER BY Name ASC;
+
+USE AdventureWorks2012;
+GO
+SELECT p.*
+FROM Production.Product AS p
+ORDER BY Name ASC;
+GO</code></pre>
+<p>Selecciona los primeros 5 registros de ordenes.</p>
+<pre><code>SELECT * FROM ordenes LIMIT 5;</code></pre>
+<p>Cuenta de los distintos productos desde ventas.</p>
+<pre><code>SELECT count(distinct idproducto)
+FROM ventas;</code></pre>
+<p>Las ventas realizadas del producto id=89</p>
+<pre><code>SELECT idproducto, sum(cantidad) as total
+FROM ventas
+WHERE idproducto = 89;</code></pre>
+<p>Seleccionar el titulo y el año de estreno de las películas emitidas en 1990 y 2000 y con una duración mayor a dos horas.</p>
+<pre><code>SELECT titulo, year
+FROM peliculas
+WHERE year IN (1990,2000)
+AND duracion &gt; 120</code></pre>
+<p>Selección del titulo e idioma de las películas con idioma ingles, español o francés.</p>
+<pre><code>SELECT titulo, idioma
+FROM peliculas
+WHERE idioma IN ('English', 'French', 'Spanish')</code></pre>
+<p>Obtenga todos los detalles de las películas en español estrenadas después del 2000, pero antes del 2010</p>
+<pre><code>SELECT * FROM peliculas
+WHERE idioma = 'Spanish'
+AND year &gt; 2000 
+AND year &lt; 2010</code></pre>
+<p>Obtener el porcentaje de personas que ya no están vivas. Alias el resultado como porcentaje_muerto. ¡Recuerda usar 100.0 y no 100!.</p>
+<pre><code>SELECT (count(muerte)*100.0)/count(*) AS porcentaje_muerto
+FROM persona</code></pre>
+<p>Seleccionar el número de años entre la película mas vieja y la mas nueva. establezca el resultado como ‘diferencia’.</p>
+<pre><code>SELECT max(year) - min(year) AS diferencia 
+FROM peliculas</code></pre>
+<p>Todos los registros puede implicar además extraer toda la información de cada variable (columna) de una tabla determinada. El siguiente fragmento extrae toda la información de la tabla clientes, sin filtro de ningún tipo.</p>
+<pre><code>SELECT * FROM clientes</code></pre>
+<p>Los clientes de Concepción (condición simple).</p>
+<pre><code>SELECT * 
+FROM clientes 
+WHERE ciudad = 'Concepción'</code></pre>
+<p>subconjunto de columnas (información parcial).</p>
+<pre><code>SELECT nombre, apellido, cargo, correo 
+FROM clientes</code></pre>
+<p>Condición múltiple.</p>
+<pre><code>SELECT * 
+FROM clientes 
+WHERE ciudad = 'Concepción' AND edad &gt;= 45
+AND fecha IS NOT NULL
+
+--
+SELECT * 
+FROM clientes 
+WHERE (ciudad = 'Concepción' AND edad &gt;= 45 OR estado = TRUE)
+AND fecha IS NOT NULL</code></pre>
+<section id="ejemplos-de-agregaciones" class="level3">
+<h3 class="anchored" data-anchor-id="ejemplos-de-agregaciones">Ejemplos de agregaciones</h3>
+<p>El total de productos vendidos.</p>
+<pre><code>SELECT sum(cantidad)
+FROM ventas;</code></pre>
+<p>La mayor cantidad de venta de un producto.</p>
+<pre><code>SELECT max(cantidad)
+FROM ventas;</code></pre>
+<p>Total de unidades vendidas por producto (los primeros 5 más vendidos).</p>
+<pre><code>SELECT idproducto, sum(cantidad) as total
+FROM ventas
+GROUP BY idproducto
+HAVING cantidad &gt; 0
+ORDER BY total DESC
+LIMIT 5;</code></pre>
+<p>Cuantas consultas por usuario medico (simple).</p>
+<pre><code>SELECT count(idmedico), ex_idm as medicos 
+FROM consultas c 
+GROUP BY idmedico</code></pre>
+<p>Lista de edades y cantidad de pacientes para cada edad.</p>
+<pre><code>SELECT DISTINCT count(*),pa_edad 
+FROM bio_pacientes bp GROUP BY pa_edad
+ORDER BY pa_edad</code></pre>
+<p>Encontrar la mayor diferencia en el total de puntajes de todas las tareas. Mostrar la diferencia.</p>
+<pre><code>SELECT MAX(puntaje)-MIN(puntaje) AS diferencia 
+FROM
+  (SELECT student,
+          SUM(tarea1 + tarea2 + tarea3) AS puntaje
+   FROM clase_puntajes
+   GROUP BY student) a;</code></pre>
+<p>El promedio de la compensación según el cargo y el género del empleado. La compensación se calcula agregando el salario y el bono de cada empleado. No todos los empleados reciben el bono. Un empleado puede recibir más de un bono.</p>
+<pre><code>SELECT e.employee_title, e.sex,
+AVG(e.salary + b.ttl_bonus) AS avg_compensation 
+FROM sf_employee e
+INNER JOIN
+  (SELECT worker_ref_id,
+          SUM(bonus) AS ttl_bonus
+   FROM sf_bonus
+   GROUP BY worker_ref_id) b ON e.id = b.worker_ref_id 
+GROUP BY employee_title, sex;</code></pre>
+<p>Número de tiendas abierta en domingo.</p>
+<pre><code>SELECT sunday, COUNT(*) AS total_business
+FROM yelp_business_hours bh
+LEFT JOIN yelp_business b ON bh.business_id = b.business_id
+WHERE sunday IS NOT NULL
+AND is_open = 1
+GROUP BY sunday
+ORDER BY total_business DESC;</code></pre>
+<p>Total de ventas de Alicia y Renato.</p>
+<pre><code>SELECT SUM(ventas) AS total_ventas FROM ventas_general
+WHERE vendedor = 'Alicia' OR vendedor = 'Renato'</code></pre>
+</section>
+<section id="categorías-on-case" class="level3">
+<h3 class="anchored" data-anchor-id="categorías-on-case">Categorías on CASE</h3>
+<p>Define un serie de categorías en base al precio. Crea una nueva columna ‘nivel’ con la categoría evaluada.</p>
+<pre><code>SELECT id, articulo, precio,
+  CASE precio WHEN &lt; 500  THEN 'BAJO'
+             WHEN &lt; 15000 THEN 'NORMAL'
+             ELSE 'AlTO'
+  END as nivel
+FROM ventas</code></pre>
+<p>Contabilizar cuantos productos estan en nivel ALTO.</p>
+<pre><code>SELECT
+    COUNT(Id) AS itemes,
+    SUM ( CASE
+         WHEN nivel = 'ALTO' THEN 1
+          ELSE 0 END
+        ) AS itemes_altos
+FROM ventas</code></pre>
+</section>
+<section id="registros-duplicados" class="level3">
+<h3 class="anchored" data-anchor-id="registros-duplicados">Registros duplicados</h3>
+<p>Uno de los problemas más acuciantes en el análisis de datos tiene que ver con este tema.</p>
+<pre><code>SELECT max(pa_id), pa_apellido,pa_nombre, COUNT(pa_id) AS NumOccurrences
+FROM bio_pacientes
+GROUP BY pa_apellido, pa_nombre
+HAVING ( COUNT(pa_id) &gt; 1 )</code></pre>
+<p>Alternativa.</p>
+<pre><code>SELECT nombre, rut, COUNT(*) AS registros
+FROM clientes
+GROUP BY nombre, rut
+HAVING ( COUNT(*) &gt; 1 ) </code></pre>
+<p>full detalle de cuales registros tienen duplicados</p>
+<pre><code>SELECT * FROM
+    (
+    SELECT column_a, column_b, column_c, count(*) as records 
+    FROM tabla1
+    GROUP BY 1,2,3
+   ) a
+WHERE records = 2</code></pre>
+<p>listar los registros duplicados en base a una columna determinada (col_1).</p>
+<pre><code>SELECT id, col_1, col_2
+FROM (  SELECT  *, 
+                COUNT(*) OVER(PARTITION BY col_1) N
+        FROM codigos) as A
+WHERE N &gt; 1</code></pre>
+<p>Eliminar solo los duplicados.</p>
+<pre><code>DELETE FROM tabla1
+WHERE NOT campo IN 
+(select max(campo) 
+FROM tabla1 GROUP BY campo)
+
+-- alternativa
+
+DELETE FROM tabla_1 a USING (
+SELECT MIN(ctid) as ctid, key
+    FROM tabla_1 
+    GROUP BY key HAVING COUNT(*) &gt; 1
+    ) b
+WHERE a.key = b.key 
+AND a.ctid &lt;&gt; b.ctid</code></pre>
+<p>En MySQL mediante una tabla temporal donde se registran los duplicados.</p>
+<pre><code>CREATE temporary TABLE temp_table (id int);
+INSERT temporal_table
+        (id)
+SELECT id
+FROM your_table t1
+WHERE EXITS
+        (
+        SELECT *
+        FROM your_table t2
+        WHERE t2.col_1 = t1.col_1
+            and t2.col_2 = t1.col_2
+            and t2.col_3 = t1.col_3
+            and t2.id &gt; t1.id
+        );
+-- ahora se compara ambas tablas para eliminar los duplicados
+DELETE
+FROM your_table
+WHERE id in (SELECT id FROM temporal_table);</code></pre>
+</section>
+<section id="oeradores-lógicos" class="level3">
+<h3 class="anchored" data-anchor-id="oeradores-lógicos">Oeradores lógicos</h3>
+<p>Ambas condiciones deben cumplirse.</p>
+<pre><code>SELECT *
+FROM clientes 
+WHERE nacimiento &gt; ‘1995-01-01’ AND puntos &gt; 1000</code></pre>
+<p>Al menos una condición debe cumplirse.</p>
+<pre><code>SELECT *
+FROM clientes 
+WHERE nacimiento &gt; ‘1995-01-01’ OR puntos &gt; 1000</code></pre>
+<p>Negar cierta condición.</p>
+<pre><code>SELECT *
+FROM clientes 
+WHERE NOT (nacimiento &gt; ‘1995-01-01’)</code></pre>
+<p>Clientes de alguna de las categorías.</p>
+<pre><code>SELECT *
+FROM clientes 
+WHERE estado IN ('A', 'B', 'C', 'D')</code></pre>
+<p>Entre un rango de fechas o números.</p>
+<pre><code>SELECT *
+FROM clientes 
+WHERE puntos BETWEEN 1000 AND 5000</code></pre>
+</section>
+<section id="subconsultas" class="level3">
+<h3 class="anchored" data-anchor-id="subconsultas">Subconsultas</h3>
+<p>Distribución de ordenes por cliente.</p>
+<pre><code>SELECT orders, count(*) as num_customers 
+FROM
+(
+   SELECT customer_id, count(order_id) as orders 
+   FROM orders
+   GROUP BY 1
+) a
+GROUP BY 1</code></pre>
+<p>Conocer el producto mas caro.</p>
+<pre><code>SELECT nombre, codigo, precio
+FROM productos
+WHERE precio=(SELET max(precio) FROM productos)</code></pre>
+<p>Las subconsultas que retornan un solo valor escalar se utiliza con un operador de comparación o en lugar de una expresión</p>
+<pre><code>SELECT CAMPOS
+FROM TABLA
+WHERE CAMPO OPERADOR (SUBCONSULTA)
+
+SELECT CAMPO OPERADOR (SUBCONSULTA)
+FROM TABLA</code></pre>
+<p>Conocer el valor de un artículo determinado (‘pesa’) y la diferencia con el artículo mas costoso.</p>
+<pre><code>SELECT articulo, precio,
+precio - (SELECT max(precio) FROM libros) as diferencia
+FROM productos
+WHERE articulo = 'pesa'</code></pre>
+<p>Actualizamos el precio del producto con el valor mayor:.</p>
+<pre><code>UPDATE productos SET precio=45
+WHERE valor = (SELECT max(valor) FROM productos)</code></pre>
+</section>
+<section id="pivot" class="level3">
+<h3 class="anchored" data-anchor-id="pivot">Pivot</h3>
+<p>Una tabla de pivoteo es una manera de resumir datos en forma de filas y columnas. Dado por los atributos de una columna donde la intersección de fila y columna se utiliza un valor de tipo estadístico como suma , cuenta o promedio. Cuadro resumen de las ventas de cada producto por fecha.</p>
+<pre><code>SELECT fecha, 
+sum(case WHEN product = 'polera' THEN monto ELSE 0 END) as poleras,
+sum(case WHEN product = 'camisa' THEN monto ELSE 0 END) as camisas,
+sum(case WHEN product = 'zapato' THEN monto ELSE 0 END) as zapatos
+FROM ordenes
+GROUP BY 1</code></pre>
+<p>Promedio de valor de propiedades por comuna y numero de dormitorios.</p>
+<pre><code>SELECT comuna,
+   avg(valor) FILTER (WHERE dormitorio = 1) AS "1",
+   avg(valor) FILTER (WHERE dormitorio = 2) AS "2",
+   avg(valor) FILTER (WHERE dormitorio = 3) AS "3",
+   avg(valor) FILTER (WHERE dormitorio = 4) AS "4"
+FROM propiedades
+GROUP BY comuna;</code></pre>
+<pre><code>SELECT * FROM   
+(
+    SELECT 
+        category_name, 
+        product_id
+    FROM 
+        production.products p
+        INNER JOIN production.categories c 
+            ON c.category_id = p.category_id
+) t 
+PIVOT(
+    COUNT(product_id) 
+    FOR category_name IN (
+        [Children], 
+        [Comfort], 
+        [Cruisers], 
+        [Cyclocross], 
+        [Electric], 
+        [Mountain], 
+        [Road])
+) AS pivot_table;</code></pre>
+<p>Agregando el año del modelo.</p>
+<pre><code>SELECT * FROM   
+(
+    SELECT 
+        category_name, 
+        product_id,
+        model_year
+    FROM 
+        production.products p
+        INNER JOIN production.categories c 
+            ON c.category_id = p.category_id
+) t 
+PIVOT(
+    COUNT(product_id) 
+    FOR category_name IN (
+        [Children], 
+        [Comfort], 
+        [Cruisers], 
+        [Cyclocross], 
+        [Electric], 
+        [Mountain], 
+        [Road])
+) AS pivot_table;</code></pre>
+<p>En PostgreSQL se requiere habilitar la función tablefunc (<code>CREATE</code>&nbsp;<code>extension tablefunc;</code>) para utilizar crosstab.</p>
+<p>Seleccionar el puntaje obtenido de cada alumno en cada examen.</p>
+<pre><code>SELECT * 
+FROM crosstab(
+'SELECT nombre, examen, puntaje 
+ FROM examenes ORDER BY 1,2')
+AS notas (nombre varchar(15),examen1 int, examen2 int, 
+examen3 int, examen4 int);</code></pre>
+</section>
+<section id="series-de-tiempo" class="level3">
+<h3 class="anchored" data-anchor-id="series-de-tiempo">Series de tiempo</h3>
+<p>Los análisis de series de tiempo es un tipo común de necesidad de análisis de datos, según necesitamos conocer el comportamiento de una característica en el tiempo, ya sean ventas de productos, ingresos, etc.</p>
+<p>La característica principal es el tiempo el que debe ser en formato date o timestamp.</p>
+<p>Las funciones generales para manejo de iempo son date_part o extract <strong>date_part</strong>(‘periodo’, variable) <strong>extract</strong>(‘periodo’ from variable) donde variable en nuestro columna en formato timestamp y periodo puede ser:</p>
+<ul>
+<li><p>microsecond</p></li>
+<li><p>millisecond</p></li>
+<li><p>second</p></li>
+<li><p>minute</p></li>
+<li><p>hour</p></li>
+<li><p>day</p></li>
+<li><p>week</p></li>
+<li><p>month</p></li>
+<li><p>quarter</p></li>
+<li><p>year</p></li>
+<li><p>decade</p></li>
+<li><p>century</p></li>
+<li><p>millennium</p></li>
+</ul>
+<p>Cuadro comparativo de ventas de cada articulo segun fecha de venta. Esto alimenta un gráfico de comparación de cada producto.</p>
+<pre><code>SELECT date_part('year', fecha) as anual, productos, 
+sum(venta) as total
+FROM ventas
+WHERE productos IN ('camisa','pantalon','zapato', 'juego')
+GROUP BY 1,2</code></pre>
+<p>Cálculo de la diferencia entre 2 áreas de ventas, secciones masculina y femenina.</p>
+<pre><code>SELECT date_part('year',sales_month) as ventas_year,
+sum(CASE WHEN kind_of_business = 'Mujer' THEN ventas end) 
+as venta_mujer,
+sum(CASE WHEN kind_of_business = 'Hombre' THEN ventas end) 
+as venta_hombre
+FROM ventas
+WHERE tipo_seccion IN ('Hombre', 'Mujer')
+GROUP BY 1
+</code></pre>
+<p>Cálculo de la diferencia entre 2 áreas de ventas, secciones masculina y femenina.</p>
+<pre><code>SELECT ventas_year, 
+    venta_mujer - venta_hombre as womens_minus_mens,
+    venta_hombre - venta_mujer as mens_minus_womens 
+FROM (
+    SELECT date_part('year',sales_month) as ventas_year,
+    sum(CASE WHEN kind_of_business = 'Mujer' THEN ventas end) 
+    as venta_mujer,
+    sum(CASE WHEN kind_of_business = 'Hombre' THEN ventas end) 
+    as venta_hombre
+    FROM ventas
+    WHERE tipo_seccion IN ('Hombre', 'Mujer')
+    GROUP BY 1
+) a</code></pre>
+</section>
+<section id="uniones-join" class="level3">
+<h3 class="anchored" data-anchor-id="uniones-join">Uniones (JOIN)</h3>
+<p>La herramienta más potente en el modelo relacional. Las sentencias JOIN permiten el uso de datos provenientes de dos o más tablas utilizando como conector entre ellas una columna cómun. Esta columna debe ser del mismo tipo de datos, y generalmente es la clave primaria de ellas (aunque no necesariamente).</p>
+<section id="left-join" class="level4">
+<h4 class="anchored" data-anchor-id="left-join">LEFT JOIN</h4>
+<p>LEFT JOIN o LEFT OUTER JOIN obtiene todos lod datos de la primera tabla (o tablaba izquierda), y solamenta las filas que coinciden desde la segunda tabla (o tabla derecha). en caso de no haber coincidencias desde esta última tabla muestra solo valores nulos.</p>
+<p>Recuperando filas desde una tabla que no poseen correspondencia de filas a otra tabla y mantiene solo las filas que no corresponden (anti-join).</p>
+<pre><code>SELECT d.*
+FROM departamentos d LEFT OUTER JOIN empleados e
+ON (d.depto = e.depto)
+WHERE e.deptno is null</code></pre>
+<p>Seleccionar registros de dos tablas y luego correlacionar con una tercera tabla. empleados y departamentos y bono entregado (no todos los empleados reciben bono).</p>
+<pre><code>SELECT e.ename, d.loc, eb.bono
+FROM empleados e 
+JOIN departamentos d ON (e.deptno=d.deptno)
+LEFT JOIN bonos eb ON (e.empno=eb.empno)
+ORDER BY 2</code></pre>
+<p>Seleccionar registros de dos tablas y luego correlacionar con una tercera tabla. empleados y departamentos y bono entregado (no todos los empleados reciben bono)</p>
+<pre><code>SELECT e.ename, d.loc,
+    (SELECT eb.bono FROM bonos eb
+         WHERE eb.empno=e.empno) as bono
+FROM empleados e, departamentos d
+WHERE e.deptno=d.deptno</code></pre>
+<p>Clientes sin ordenes de compra.</p>
+<pre><code>SELECT distinct a.cliente_id
+FROM transacciones a
+LEFT JOIN clientes b ON a.cliente_id = b.cliente_id 
+WHERE b.cliente_id IS NULL</code></pre>
+<p>Cuantos pacientes hay de cada comuna.</p>
+<pre><code>SELECT count(*) cantidad, co_id codigo, co_comuna as comuna 
+FROM pacientes p
+LEFT JOIN comunas c on (p.pa_comuna = c.co_id)
+WHERE pa_comuna !='00000'
+GROUP BY co_id, pa_comuna
+ORDER BY cantidad DESC;</code></pre>
+<p>Cuantas consultas por usuario medico (completo).</p>
+<pre><code>SELECT count(ex_idm),md_nombre||' '||md_apellido , ex_idm as medicos 
+FROM consultas c 
+LEFT JOIN medicos ON (ex_idm=md_id)
+GROUP BY ex_idm, md_nombre||' '||md_apellido</code></pre>
+</section>
+<section id="inner-join" class="level4">
+<h4 class="anchored" data-anchor-id="inner-join">INNER JOIN</h4>
+<p>INNER JOIN o JOIN regresa solamente los registros coincidentes en ambas tablas.</p>
+<pre><code>-- sentencia general
+SELECT *
+FROM table_1
+INNER JOIN table_2
+ON table_1.column_name = table_2.column_name
+
+-- forma simplificada
+SELECT * FROM table_1 JOIN table_2
+ON table_1.column_name = table_2.column_name</code></pre>
+<p>Detalles de orden y producto.</p>
+<pre><code>-- 
+
+SELECT a.*,b.* 
+FROM ventas as a 
+INNER JOIN 
+productos as b 
+ON a.idproducto = b.idproducto</code></pre>
+<p>Encontrar el total de camas (beds) por nacionalidad dentro de los registros de Airbnb, en las tablas airbnd_apartments con airbnd_hosts mediante la columna relacionada “host_id”.</p>
+<pre><code>SELECT nationality, SUM(n_beds) AS total_beds_available
+FROM airbnb_hosts h
+INNER JOIN airbnb_apartments a ON h.host_id = a.host_id 
+GROUP BY nationality
+ORDER BY total_beds_available DESC;</code></pre>
+<p>Esta consulta devolverá los datos de la tabla 1 cuyos campos coincidan con los de la tabla2 con una clave y los datos que no estén en la tabla 1 al compararlos con la tabla2 con una condición y una clave.</p>
+<pre><code>select *
+from Table1 t1
+inner join Table2 t2 on t1.ID_Column = t2.ID_Column
+left join Table3 t3 on t1.ID_Column = t3.ID_Column 
+where t2.column_name = column_value
+and t3.ID_Column is null order by t1.column_name;</code></pre>
+</section>
+<section id="outer-join" class="level4">
+<h4 class="anchored" data-anchor-id="outer-join">OUTER JOIN</h4>
+<p><strong>LEFT OUTER JOIN</strong></p>
+<p>Devuelve todas las filas de la tabla izquierda, emparejadas con las filas de la tabla derecha en las que se cumplen las condiciones de la cláusula ON. Las filas en las que no se cumple la cláusula ON tienen NULL en todas las columnas de la tabla derecha</p>
+<pre><code>SELECT * FROM table_1 AS t1
+LEFT JOIN table_2 AS t2 ON t1.ID_Column = t2.ID_Column</code></pre>
+<p><strong>RIGHT OUTER JOIN</strong></p>
+<p>Devuelve todas las filas de la tabla derecha, emparejadas con las filas de la tabla izquierda en las que se cumplen las condiciones de la cláusula ON. Las filas en las que no se cumple la cláusula ON tienen NULL en todas las columnas de la tabla izquierda.</p>
+<pre><code>SELECT * FROM table_1 AS t1
+RIGHT JOIN table_2 AS t2 ON t1.ID_Column = t2.ID_Column</code></pre>
+<p><strong>FULL OUTER JOIN</strong></p>
+<p>Se devuelven todas las filas de ambas tablas, independientemente de que se cumplan las condiciones de la cláusula ON. Las filas que no satisfacen la cláusula ON se devuelven con NULL en todas las columnas de la tabla opuesta (es decir, para una fila de la tabla izquierda, todas las columnas de la tabla derecha contendrán NULL, y viceversa).</p>
+<pre><code>SELECT * FROM table_1 AS t1
+FULL JOIN table_2 AS t2 ON t1.ID_Column = t2.ID_Column</code></pre>
+</section>
+<section id="self-join" class="level4">
+<h4 class="anchored" data-anchor-id="self-join">SELF JOIN</h4>
+<p>Una tabla puede unirse a sí misma en lo que se conoce como autounión, donde combina registros de la tabla con otros registros de la misma tabla. Estas autouniones suelen utilizarse en consultas en las que se define una jerarquía en las columnas de la tabla.</p>
+<p>Lista de empleados con sus respectivos jefes desde la tabla de empleados.</p>
+<pre><code>SELECT empleados.Name, jefes.Name AS jefe
+FROM empleados
+INNER JOIN empleados AS jefes
+ON empleados.Boss_ID = jefes.ID</code></pre>
+</section>
+<section id="union" class="level4">
+<h4 class="anchored" data-anchor-id="union">UNION</h4>
+<p>Apilando registros de 2 o mas tablas. Deben tener las mismas cantidad de columnas y tipo de dato. Incluye los duplicados si existen.</p>
+<pre><code>SELECT nombre, departamento
+FROM empleados
+WHERE deptno = 20
+UNION ALL
+    SELECT deptnombre, deptno
+    FROM departamentos
+    UNION ALL
+        SELECT '++++', NULL
+        FROM tabla1</code></pre>
+<p>No se incluyen los duplicados.</p>
+<pre><code>SELECT nombre, departamento
+FROM empleados
+WHERE deptno = 20
+UNION
+    SELECT deptnombre, deptno
+    FROM departamentos
+    UNION
+        SELECT '++++', '++++'
+        FROM tabla1</code></pre>
+<p>Seleccionar las filas de dos o más tablas combinando la información de varias columnas.</p>
+<pre><code>SELECT e.ename, d.loc,
+FROM empleados e, departamentos d
+WHERE e.deptno = d.deptno
+AND deptno = 10
+
+-- alternativa
+SELECT e.ename, d.loc,
+FROM empleados e INNER JOIN departamentos d
+ON (e.deptno = d.deptno)
+WHERE deptno = 10
+</code></pre>
+<p>Encontrar filas iguales entre 2 tablas, esto es filas similares en valores.</p>
+<pre><code>SELECT col1,col2,col3,col4,col5
+FROM tabla1
+WHERE (col2,col3,col4) in (
+    SELECT col2,col3,col4 FROM tabla1
+    INTERSECT
+    SELECT col2,col3,col4 FROM tabla2
+)
+-- version alternativa
+
+SELECT e.empno,e.ename,e.job,e.sal,e.deptno
+FROM tabla1 e JOIN tabla2
+ON (e.ename = v.ename
+and e.job = v.job
+and e.sal = v.sal )
+</code></pre>
+<p>Actualizar en base a un join.</p>
+<pre><code>UPDATE usuarios AS u 
+SET rute = r.rut, id=r.idf,
+passwd=md5(substring(r.rut from 1 for 4))
+FROM ruts AS r
+WHERE u.id = r.ido 
+</code></pre>
+</section>
+</section>
+<section id="control-de-datos-dcl" class="level3">
+<h3 class="anchored" data-anchor-id="control-de-datos-dcl">Control de Datos (DCL)</h3>
+<p>Son una colección de comandos destinados al control del acceso a los objetos y estructuras de la base de datos. Los comandos utilizados son GRANT y REVOQUE (otorgar y denegar respectivamente).</p>
+<p><strong>Grant</strong> define los privilegios de acceso a los diversos objetos dentro de la base de datos. El estándar SQL no permite establecer los privilegios en más de un objeto por comando.</p>
+<p><strong>Revoque</strong> elimina los permisos otorgados previamente por GRANT.</p>
+<p>Los privilegios son:</p>
+<ul>
+<li><code>SELECT</code></li>
+<li><code>INSERT</code></li>
+<li><code>UPDATE</code></li>
+<li><code>DELETE</code></li>
+<li><code>TRUNCATE</code></li>
+<li><code>REFERENCES</code></li>
+<li><code>TRIGGER</code></li>
+<li><code>CREATE</code></li>
+<li><code>CONNECT</code></li>
+<li><code>TEMPORARY</code></li>
+<li><code>EXECUTE</code></li>
+<li><code>USAGE</code></li>
+</ul>
+</section>
+<section id="ejemplos-1" class="level3">
+<h3 class="anchored" data-anchor-id="ejemplos-1">Ejemplos</h3>
+<pre><code>-- forma general de GRANT
+
+GRANT { { SELECT | INSERT | UPDATE | DELETE | TRUNCATE | 
+    REFERENCES | TRIGGER }
+    [, ...] | ALL [ PRIVILEGES ] }
+    ON { [ TABLE ] table_name [, ...]
+         | ALL TABLES IN SCHEMA schema_name [, ...] }
+    TO role_specification [, ...] [ WITH GRANT OPTION ]
+    [ GRANTED BY role_specification ]</code></pre>
+<p>Otorga pivilegios de ingreso a todos los usuarios para la tabla films:</p>
+<pre><code>GRANT INSERT ON films TO PUBLIC;</code></pre>
+<p>Otorga todos los privilegios al usuario manuel en la tabla clientes.</p>
+<pre><code>GRANT ALL PRIVILEGES ON clientes TO manuel;</code></pre>
+<p>Permite la membresia en el grupo admins al usuario manuel</p>
+<pre><code>GRANT admins TO manuel;</code></pre>
+<p>Forma general de REVOQUE.</p>
+<pre><code>REVOKE [ GRANT OPTION FOR ]
+    { { SELECT | INSERT | UPDATE | DELETE | TRUNCATE | 
+    REFERENCES | TRIGGER }
+    [, ...] | ALL [ PRIVILEGES ] }
+    ON { [ TABLE ] table_name [, ...]
+         | ALL TABLES IN SCHEMA schema_name [, ...] }
+    FROM role_specification [, ...]
+    [ GRANTED BY role_specification ]
+    [ CASCADE | RESTRICT ]</code></pre>
+<p>Revoca el privilegio de insertar para el el usuario public en l atabla films</p>
+<pre><code>REVOKE INSERT ON films FROM PUBLIC; </code></pre>
+<p>Revoca todos los privilegios al usuario manuel para la tabla clientes.</p>
+<pre><code>REVOKE ALL PRIVILEGES ON clientes FROM manuel;</code></pre>
+<p>Revoca la membresia del grupo admins al usuario manuel</p>
+<pre><code>REVOKE admins FROM manuel;</code></pre>
+</section>
+</section>
+<section id="control-de-transacciones-tcl" class="level2">
+<h2 class="anchored" data-anchor-id="control-de-transacciones-tcl">Control de Transacciones (TCL)</h2>
+<p>Una transacción es una agrupación de acciones que se comportan como una unidad. Estas deben cumplir 4 propiedades fundamentales conocidas como ACID (atomicidad, coherencia, asilamiento y durabilidad).</p>
+<ul>
+<li><p><strong>Atomicidad</strong>: Una transacción es indivisible, o se ejecutan todas la sentencias o no se ejecuta ninguna.</p></li>
+<li><p><strong>Consistencia</strong>: Después de una transacción la base de datos estará en un estado válido y consistente.</p></li>
+<li><p><strong>Aislamiento</strong>: Cada transacción está aislada del resto de transacciones y que el acceso a los datos se hará de forma exclusiva. Si una transacción que quiere acceder de forma concurrente a los datos que están siendo utilizados por otra transacción, no podrá hacerlo hasta que la primera haya terminado.</p></li>
+<li><p><strong>Durabilidad</strong>: Los cambios que realiza una transacción sobre la base de datos son permanentes.</p></li>
+</ul>
+<p>Una sentencia simple de SQL es una transacción autocompletada (autocommit)</p>
+<pre><code>UPDATE Products SET UnitPrice=20 WHERE ProductName ='Chai'</code></pre>
+<p>Este tipo de sentencias se escriben en el fichero de transacciones de la base de datos y se realizan los cambios en la base de datos. En caso de problemas algunos motores de datos automaticamente retornan al estado anterior.</p>
+<p>Cuando se deben generar varias sentencias como parte de un proceso es necesario ejercer control sobre estas acciones. Es decir debe cumplirse el todo o nada.</p>
+<section id="ejemplos-2" class="level3">
+<h3 class="anchored" data-anchor-id="ejemplos-2">Ejemplos</h3>
+<pre><code>-- mysql
+
+START TRANSACTION;
+UPDATE cuentas SET saldo = saldo - 100 WHERE id = 1;
+UPDATE cuentas SET saldo = saldo + 100 WHERE id = 2;
+COMMIT;
+
+-- postgresql
+
+BEGIN TRANSACTION;
+UPDATE cuentas SET saldo = saldo - 100 WHERE id = 1;
+UPDATE cuentas SET saldo = saldo + 100 WHERE id = 2;
+COMMIT;</code></pre>
+<p>Estableciendo un punto de retorno en my_savepoint en caso de error.</p>
+<pre><code>BEGIN;
+UPDATE accounts SET balance = balance - 100.00
+    WHERE name = 'Alice';
+SAVEPOINT my_savepoint;
+UPDATE accounts SET balance = balance + 100.00
+    WHERE name = 'Bob';
+-- oops ... forget that and use Wally's account
+ROLLBACK TO my_savepoint;
+UPDATE accounts SET balance = balance + 100.00
+    WHERE name = 'Wally';
+COMMIT;</code></pre>
+</section>
+</section>
+<section id="sql-keywords" class="level2">
+<h2 class="anchored" data-anchor-id="sql-keywords">SQL Keywords</h2>
+<p><code>{r echo=FALSE,results='asis', message=FALSE} library(readr) data &lt;- read_csv("sql.csv", col_names = c("Keyword","Detail")) knitr::kable(data, longtable = TRUE, booktabs = TRUE,               caption = "Palabras claves en SQL (selección)")</code></p>
+<section id="procedimientos" class="level3">
+<h3 class="anchored" data-anchor-id="procedimientos">Procedimientos</h3>
+<p>Los procedimientos<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, más comunmente conocidos como procedimientos almacenados (Store Procedure) son un conjunto de instrucciones destinados a ejecutar un proceso específico. Estos pueden aceptar parámetros de entrada y salida, y pueden devolver ya sea un valor o un conjunto de registros. Los motores más utilizados de bases de datos como Oracle, MySQL, PostgreSQL y otros, permiten el uso de estos procedimientos.</p>
+<p>En cada petición SQL se establece una comunicación entre el cliente que genera el SQL y el servidor que traduce esta petición para generar los resultados esperados y los transmite por la red hacia el cliente, cada petición entonces generará más tráfico. Una forma de reducir este tráfico y que varias interacciones se generen dentro del servidor antes de entregar el resultado final al cliente es mediante el uso de procedimientos almacenados (PA).</p>
+<p>Como el PA se ejecuta en el servidor de base de datos, todas las instrucciones se ejecutan directamente en el servidor y una vez obtenidos los resultados estos son enviados al cliente. Además, si se realiza un cambio al PA este se activará para todos los clientes que lo utilicen, centralizando la lógica empresarial de la base de datos.</p>
+<p>Estos PA entonces tienen la función primordial de hacer más eficiente el uso de la base de datos, ya que podemos generar una serie de procesos encadenados que se activen dentro del servidor, en lugar de realizar estos procesos uno a uno, donde cada proceso además significa una interrelación cliente y servidor lo que conlleva a un mayor tráfico de datos y tiempo.</p>
+<p>Los PA se pueden escribir en variadod lenguajes de programación, esto depende del motor utilizado, PostgreSQL admite: : PL/pgSQL, PL/Perl, PL/Tcl y PL/Python</p>
+<p>El lenguaje disponible automáticamente en PostgreSQL es PL/pgSQL. Para utilizar PL/Perl, PL/Tcl o PL/Python tiene que ser configurado o compilado en PostgreSQL con estos parámetros <code>--with-perl</code> <code>--with-tcl</code> <code>--with-python</code>.</p>
+<p>Tambien existen muchos otros lenguajes disponibles como módulos adicionales, como, PL/Java, PL/PHP, PL/R, PL/Ruby, PL/Sheme y PL/sh. Para su uso deben descargarse e instalarse en forma individual.</p>
+<p>El lenguaje de procedimientos <a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> es similar al PL/SQL de Oracle y esta disponible por defecto en cada instalación de PostgreSQL. Se utiliza para:</p>
+<ul>
+<li><p>Creación de procedimientos, funciones y disparadores</p></li>
+<li><p>Generar estructuras de control</p></li>
+<li><p>Realización de operaciones y cálculos complejos</p></li>
+</ul>
+<p>Este lenguaje es estructurado en forma de bloques.</p>
+<pre><code>CREATE [ OR REPLACE ] FUNCTION 
+nombre_funcion([  [ argnombre ] argtipo ]) 
+RETURNS tipo AS $$
+
+[ DECLARE ]
+ [ declaraciones de variables ]
+
+BEGIN
+  codigo  
+END;
+$$ LANGUAGE plpgsql
+   | IMMUTABLE | STABLE | VOLATILE
+   | CALLED ON NULL INPUT | RETURNS NULL ON NULL INPUT | STRICT
+   | [ EXTERNAL ] SECURITY INVOKER | [ EXTERNAL ] SECURITY DEFINER
+   | COST execution_cost
+   | ROWS result_rows
+   | SET configuration_parameter { TO value | = value | FROM CURRENT }
+;</code></pre>
+<p><strong>Nota</strong>. Cuando se crea un PA para reemplazar uno existente, los permisos y autoría del PA no son alterados. Por tanto se debe tener permisos de propietario para reemplazarlo.</p>
+<p><strong>Nota</strong>. Al reemplazar un PA existente no pueden cambiarse los nombres de sus argumentos o sus tipos. De lo contrario se creará un nuevo PA. Por tanto, pueden existir PA con el mismo nombre pero que difieren en sus argumentos (en nombre y/o tipo).</p>
+<pre><code>CREATE OR REPLACE FUNCTION ejemplo(integer) 
+RETURNS integer AS $$
+BEGIN
+ RETURN $1;
+END;
+$$ LANGUAGE plpgsql;</code></pre>
+</section>
+<section id="para-qué-procedimientos-almacenados" class="level3">
+<h3 class="anchored" data-anchor-id="para-qué-procedimientos-almacenados">Para qué procedimientos almacenados?</h3>
+<p>En primer lugar para mejorar el rendimiento de la aplicación. Cada ejecución se realiza en el servidor de la base de datos sin interacción con el cliente ni tener que procesar resultados intermedios.</p>
+<p>Para simplificar la aplicación. Al delegar algunas funciones dentro de la base de datos y ahorrar por tanto complejidad en el desarrollo de la aplicación. Al tener la lógica de proceso dentro de la base de datos, esta se aplicará en forma independiente a la aplicación utilizada desde el lado del cliente. Por tanto nuestra capacidad de conocer a cabalidad nuestro motor de datos puede permitir alivianar muchas tareas complejas en la aplicación cliente.</p>
+<p><strong>NOTA</strong>: El lado negativo de esta propuesta reside en que al vincular ciertos procesos a la base de datos utilizada, condiciona que la aplicación cliente debe mantenerse vinculada a esta y no podrá fácilmente ser utilizada con otro motor de datos.</p>
+<p>Cuando tenemos relaciones entre tablas con la condición ON CASCADE, en que si eliminamos un registro en una tabla, posiblemente podemos eliminar a su vez los registros asociados en otra tabla y así sucesivamente. Pero con PA podemos establecer nuevas rutinas de relaciones: podremos establecer que al actualizar un registro de una tabla se realicen operaciones aritméticas en otros registros asociados, eliminar algunos, actualizar otros, y así sucesivamente. El cielo es el límite o nuestra capacidad de manejar procesos complejos, lo que ocurra primero.</p>
+</section>
+<section id="ejemplos-3" class="level3">
+<h3 class="anchored" data-anchor-id="ejemplos-3">Ejemplos</h3>
+<pre><code>-- el tipico Hola mundo SQL Server
+
+CREATE PROCEDURE HolamundoProcedure
+AS
+PRINT 'Hola mundo'
+
+-- ejecutarlo...
+exec HolamundoProcedure
+</code></pre>
+<p>Creación de un PA en SQL Server.</p>
+<p>PA que toma el nombre de un autor para retornar una frase del tipo:</p>
+<p>-- “Baldomero Lillo es de Chile””</p>
+<pre><code>CREATE PROCEDURE GetNombre
+(
+  @input_id INT = NULL,     
+  @name VARCHAR(128) = NULL 
+AS 
+BEGIN
+  SELECT Name + ' es de ' + Country 
+  FROM Autores
+  WHERE Id = @input_id OR Name = @name
+END 
+GO
+
+-- llamada al PA
+EXECUTE GetName @id = 1
+ó
+EXEC Getname @name = 'Baldomero Lillo'</code></pre>
+<p>Creación de un PA en PostgreSQL.</p>
+<pre><code>CREATE OR REPLACE PROCEDURE DeleteItem
+(
+  item INT
+)
+LANGUAGE plpgsql AS
+$$
+BEGIN
+  DELETE FROM  table_itemes WHERE id_item = item;
+END
+$$
+
+-- llamada al procedimiento
+
+CALL DeleteItem(4)</code></pre>
+</section>
+<section id="funciones" class="level3">
+<h3 class="anchored" data-anchor-id="funciones">Funciones</h3>
+<p>A diferencia de los procedimientos almacenados, las funciones siempre deben devolver un valor, y tiene solo parámetros de entrada y una cláusula de retorno que debe estar declarado en el encabezado.</p>
+<p>Las funciones son seguras al estar dentro de la base de datos, de manera que oculta detalles a la aplicación.</p>
+<p>Formato de declaración de funcion. entre [] indica opcional.</p>
+<pre><code>CREATE [OR REPLACE] 
+FUNCTION nombre_de_funcion(argumento IN tipo_de_dato)
+RETURN tipo_de_dato
+AS
+BEGIN
+  codigo
+END [nombre_de_funcion]</code></pre>
+<dl>
+<dt>Nota</dt>
+<dd>
+<p>Un procedimiento almacenado (PA) puede llamar a funciones propias de SQL o de tipo UDF, pero una función no puede llamar a un PA.</p>
+</dd>
+</dl>
+</section>
+<section id="ejemplos-4" class="level3">
+<h3 class="anchored" data-anchor-id="ejemplos-4">Ejemplos</h3>
+<p>Cálculo de área de un circulo dado el radio.</p>
+<pre><code>CREATE OR REPLACE FUNCTION area_circulo(radio IN NUMBER)
+RETURN NUMBER
+IS
+    pi NUMBER := 3.14;
+    area NUMBER;
+BEGIN
+   area := pi * POWER(radio, 2);
+   RETURN area;
+END area_circulo;
+
+-- llamada
+SELECT area_circulo(45)</code></pre>
+<p>Regresa todas los artículos de la tabla itemes.</p>
+<pre><code>CREATE OR REPLACE FUNCTION GetAllItemes()
+RETURNS itemes
+LANGUAGE SQL
+AS
+$$
+  SELECT * FROM itemes;
+$$
+
+-- llamada
+SELECT GetAllItemes()</code></pre>
+<p>El Hola mundo SQL server.</p>
+<pre><code>CREATE FUNCTION dbo.HolamundoFunction()
+RETURNS varchar(20)
+AS 
+BEGIN
+     RETURN 'Hello world'
+END
+
+-- ejecutarlo
+SELECT HolamundoFunction() as resultado</code></pre>
+<p>Toma como argumento una fecha en formato date y la convierte en texto con un formato especifico de ‘DD-MM-YYYY’ (ej: 25-12-2022). Para ello usa la funcion propia de PostgreSQL ‘to_char’ para la conversion en texto.</p>
+<p>El formato de fecha en las bases de datos se almacenan por defecto en el formato ‘YYYY-MM-DD’ (ej: 2022-12-25)</p>
+<pre><code>CREATE OR REPLACE FUNCTION date_format(fecha date)
+RETURNS text
+LANGUAGE sql
+AS 
+$function$
+  SELECT to_char($1, 'DD-MM-YYYY')
+$function$;</code></pre>
+<p>Igual a la función anterior pero esta vez acepta un formato de fecha que incluye la hora.</p>
+<pre><code>CREATE OR REPLACE 
+FUNCTION date_format(fecha timestamp without time zone, 
+  formato character varying)
+ RETURNS text
+ LANGUAGE sql
+AS 
+$function$
+SELECT to_char($1, 'DD-MM-YYYY')
+$function$;</code></pre>
+<p>Esta vez se incluye un argumento adicional a la fecha que fuerza el formato de fecha de salida.</p>
+<pre><code>CREATE OR REPLACE FUNCTION date_format(fecha date, 
+  formato character varying)
+ RETURNS text
+ LANGUAGE sql
+AS 
+$function$
+  SELECT to_char($1, 'DD-MM-YYYY')
+$function$;</code></pre>
+<p>Esta vez la función toma un texto con un formato de fecha y lo convierte en una fecha real. Utiliza la función estandar ‘to_date’ para la conversion de formato.</p>
+<pre><code>CREATE OR REPLACE FUNCTION public.date_format2(text)
+RETURNS date
+LANGUAGE sql
+AS 
+$function$
+SELECT to_date($1, 'DD-MM-YY')
+$function$;</code></pre>
+<p>Esta vez toma una fecha en modo de texto y la transforma en un formato de fecha propio de postgresql, con formato largo.</p>
+<pre><code>CREATE OR REPLACE FUNCTION public.date_formatpg(text)
+RETURNS date
+LANGUAGE sql
+AS 
+$function$
+SELECT to_date($1, 'YYYY-MM-DD')
+$function$;</code></pre>
+<p>Esta vez se controla si la fecha es nula, en cuyo caso devolverá ’’.</p>
+<pre><code>CREATE OR REPLACE FUNCTION pgdate(text)
+ RETURNS date
+ LANGUAGE sql
+AS 
+$function$
+SELECT to_date(NULLIF($1,''), 'DD-MM-YYYY')
+$function$;</code></pre>
+<p>Idem anterior pero recibiendo una fecha.</p>
+<pre><code>CREATE OR REPLACE FUNCTION pgdate(date)
+ RETURNS date
+ LANGUAGE sql
+AS $function$
+SELECT to_date(NULLIF(to_char($1,'YYYY-MM-DD'),''),'YYYY-MM-DD')
+$function$;</code></pre>
+<p>Funciones algo más complejas.</p>
+<p>Función con dos argumentos y definición de variables.</p>
+<pre><code>CREATE OR REPLACE FUNCTION sumacien(integer, integer) 
+RETURNS integer AS $$
+DECLARE
+  numero1 ALIAS FOR $1;
+  numero2 ALIAS FOR $2;
+
+  constante CONSTANT integer := 100;
+  resultado integer;
+
+BEGIN
+  resultado := (numero1 * numero2) + constante;
+  RETURN resultado;
+END;
+$$ LANGUAGE plpgsql;
+
+-- llamada de la función
+SELECT sumacien(5, 20)</code></pre>
+<p>Inclusion de IF…THEN, toma dos numeros y devuelve un string de la comparación entre los numeros ingresados</p>
+<pre><code>CREATE OR REPLACE FUNCTION ejemplo_txt(integer, integer) 
+RETURNS text AS $$
+DECLARE
+ A ALIAS FOR $1;
+ B ALIAS FOR $2;
+
+ constante CONSTANT integer := 100;
+ resultado INTEGER;
+
+ resultado_txt TEXT DEFAULT 'El resultado final es NULO'; 
+
+BEGIN
+ resultado := (A * B) + constante;
+
+ IF resultado &lt;&gt; 190 THEN
+    resultado_txt :=  'El resultado es menor a 190';
+ END IF;
+
+ RETURN resultado_txt;
+END;
+$$ LANGUAGE plpgsql;
+
+-- llamada a ejemplotxt
+SELECT ejemplotxt(5,8)</code></pre>
+</section>
+</section>
+<section id="procedimientos-vs-funciones" class="level2">
+<h2 class="anchored" data-anchor-id="procedimientos-vs-funciones">Procedimientos vs Funciones</h2>
+<ul>
+<li><p>Un procedimiento no puede devolver un valor, una función sí (aunque ambos puedan devolver datos en parámetros <code>OUT</code> e <code>IN OUT</code>, <a href="http://www.postgresonline.com/journal/archives/129-Use-of-OUT-and-INOUT-Parameters.html">ver ejemplos</a> aunque sean para postgres).</p></li>
+<li><p>De lo anterior podemos deducir que las funciones se usan como parte de una expresión (<code>campo1 * función(campo2)</code>), los procedimientos no.</p></li>
+<li><p>La instrucción <code>return</code> devuelve el control al programa que la llama y entrega los resultados en ella, en el procedimiento devuelve el control al programa que la llamó pero no devuelve un valor.</p></li>
+<li><p>Las funciones pueden ser llamadas desde instrucciones SQL (<code>SELECT</code>, <code>UPDATE</code>, <code>DELETE</code>, etc) y los procedimientos no (deben ser llamados de manera independiente mediante un CALL).</p></li>
+<li><p>Procedimientos: Ejecutar una serie de consultas, modificaciones en diferentes tablas o cálculos entre ellas que serían complejas en una única instrucción SQL y no requiere de un valor de retorno.</p></li>
+<li><p>Funciones: Cálculo de un valor que será usado en una consulta SQL (como campo de un resultado <code>SELECT</code>, asignación de valor en un <code>UPDATE</code> o como filtro en un <code>WHERE</code>) a partir de parámetros de entrada, ya sea accediendo a datos de diferentes tablas o bien a partir únicamente de los parámetros de entrada.</p></li>
+</ul>
+<section id="disparadores-triggers" class="level3">
+<h3 class="anchored" data-anchor-id="disparadores-triggers">Disparadores (Triggers)</h3>
+<p>Los disparadores se encargan de activar una determinada function cuando ocurre un cierto evento ya sea en una tabla, vista o una tabla foránea. Estos disparadores se activan cuando se modifica la data mediante cualquier evento de una sentencia DML (Data Manipulation Language), esto incluye por cierto INSERT, UPDATE, DELETE o TRUNCATE. Se utilizan para ejecutar reglas de negocio en los datos, auditar o validar datos.</p>
+<p>Estructura de un trigger</p>
+<pre><code>CREATE TRIGGER triggername}
+{BEFORE | AFTER} {INSERT | UPDATE| DELETE }
+ON tablename FOR EACH ROW
+codigo;
+--
+CREATE [OR REPLACE] TRIGGER nombre_de_trigger
+BEFORE -- contexto de tiempo
+INSERT -- acción
+ON nombre_de_tabla
+FOR EACH ROW
+BEGIN
+  codigo
+END;</code></pre>
+<p>El contexto de tiempo aplica a una de las siguientes situaciones:</p>
+<p><strong>BEFORE</strong>: Solo se aplica a tablas y antes de verificar las restricciones. Es útil para chequear las restricciones de datos en aquellas situaciones donde no se puede verificar la integridad de ellos mediante las referencias.</p>
+<p><strong>AFTER</strong>: Solo aplica en tablas y después de realizar las operaciones. Se emplea para ejercer cambios en otras tablas en cascada.</p>
+<p><strong>INSTEAD OF</strong>: Se aplica en vistas, para hacerlas actualizables.</p>
+<p>Eventos de trigger para tablas.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Evento</th>
+<th>SQL</th>
+<th>Nivel</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>BEFORE</td>
+<td>DELETE</td>
+<td>FOR EACH ROW</td>
+</tr>
+<tr class="even">
+<td>BEFORE</td>
+<td>DELETE</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>BEFORE</td>
+<td>INSERT</td>
+<td>FOR EACH ROW</td>
+</tr>
+<tr class="even">
+<td>BEFORE</td>
+<td>INSERT</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>BEFORE</td>
+<td>UPDATE</td>
+<td>FOR EACH ROW</td>
+</tr>
+<tr class="even">
+<td>BEFORE</td>
+<td>UPDATE</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>AFTER</td>
+<td>DELETE</td>
+<td>FOR EACH ROW</td>
+</tr>
+<tr class="even">
+<td>AFTER</td>
+<td>DELETE</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>AFTER</td>
+<td>INSERT</td>
+<td>FOR EACH ROW</td>
+</tr>
+<tr class="even">
+<td>AFTER</td>
+<td>INSERT</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>AFTER</td>
+<td>UPDATE</td>
+<td>FOR EACH ROW</td>
+</tr>
+<tr class="even">
+<td>AFTER</td>
+<td>UPDATE</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>INSTEAD OF</td>
+<td>DELETE</td>
+<td>FOR EACH ROW</td>
+</tr>
+<tr class="even">
+<td>INSTEAD OF</td>
+<td>DELETE</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>INSTEAD OF</td>
+<td>INSERT</td>
+<td>FOR EACH ROW</td>
+</tr>
+<tr class="even">
+<td>INSTEAD OF</td>
+<td>INSERT</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>INSTEAD OF</td>
+<td>UPDATE</td>
+<td>FOR EACH ROW</td>
+</tr>
+<tr class="even">
+<td>INSTEAD OF</td>
+<td>UPDATE</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ejemplos-5" class="level3">
+<h3 class="anchored" data-anchor-id="ejemplos-5">Ejemplos</h3>
+<pre><code>--</code></pre>
+</section>
+<section id="referencias" class="level3">
+<h3 class="anchored" data-anchor-id="referencias">Referencias</h3>
+<ul>
+<li><a href="https://www.universidadviu.com/co/actualidad/nuestros-expertos/lenguaje-sql-historia-y-conceptos-basicos#:~:text=Historia%20del%20lenguaje%20SQL,se%20cre%C3%B3%20el%20lenguaje%20SQL.">Historia y evolución</a></li>
+<li><a href="https://www.w3schools.com/sql/default.asp">SQL w3schools</a></li>
+<li><a href="https://www.postgresql.org/docs/13/index.html" class="uri">https://www.postgresql.org/docs/13/index.html</a></li>
+<li><a href="https://www.w3schools.com/sql/sql_foreignkey.asp" class="uri">https://www.w3schools.com/sql/sql_foreignkey.asp</a></li>
+<li><a href="https://docs.microsoft.com/en-us/sql/relational-databases/tables/create-foreign-key-relationships?view=sql-server-ver15" class="uri">https://docs.microsoft.com/en-us/sql/relational-databases/tables/create-foreign-key-relationships?view=sql-server-ver15</a></li>
+<li><a href="https://dev.mysql.com/doc/refman/8.0/en/create-table-foreign-keys.html" class="uri">https://dev.mysql.com/doc/refman/8.0/en/create-table-foreign-keys.html</a></li>
+<li><a href="https://www.postgresqltutorial.com/psql-commands/" class="uri">https://www.postgresqltutorial.com/psql-commands/</a></li>
+</ul>
+</section>
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Documentación completa en su sitio oficial <a href="https://www.postgresql.org/docs/15/sql-createprocedure.html">ver enlace</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Para una referencia completa de este lenguaje <a href="https://www.postgresql.org/docs/current/plpgsql.html">ver este enlace</a>.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
