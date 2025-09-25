@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>index</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="index_files/libs/clipboard/clipboard.min.js"></script>
+<script src="index_files/libs/quarto-html/quarto.js"></script>
+<script src="index_files/libs/quarto-html/popper.min.js"></script>
+<script src="index_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="index_files/libs/quarto-html/anchor.min.js"></script>
+<link href="index_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="index_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="index_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="index_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="index_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+
+
+
+<section id="data-science" class="level1">
+<h1>Data Science</h1>
+<section id="curso-sin-lagunas" class="level2">
+<h2 class="anchored" data-anchor-id="curso-sin-lagunas">Curso sin lagunas</h2>
+<section id="objetivo-general" class="level3">
+<h3 class="anchored" data-anchor-id="objetivo-general">📚 Objetivo General</h3>
+<p>Formar profesionales capaces de adquirir, procesar, analizar y comunicar información basada en datos mediante herramientas de programación, estadística y machine learning, integrando principios éticos y buenas prácticas de ciencia de datos.</p>
+<hr>
+</section>
+</section>
+<section id="módulo-1-introducción-al-data-science" class="level2">
+<h2 class="anchored" data-anchor-id="módulo-1-introducción-al-data-science">📓 Módulo 1: Introducción al Data Science</h2>
+<p><strong>Objetivo del módulo:</strong> Comprender el rol del científico de datos y el ciclo de vida de los proyectos de data science.</p>
+<p><strong>Resultados de Aprendizaje:</strong> - Entender las etapas de un proyecto de ciencia de datos. - Reconocer el valor de los datos y su impacto en diversas industrias.</p>
+<p><strong>Contenidos:</strong> 1. Historia y definición de Data Science 2. Conceptos fundamentales y tipos de análisis 3. Flujo de trabajo de un proyecto de datos 4. Ciclos CRISP-DM y OSEMN 5. Ética y privacidad en datos 6. Herramientas y entornos comunes (Python, Jupyter, Git, VS Code)</p>
+</section>
+<section id="introducción" class="level2">
+<h2 class="anchored" data-anchor-id="introducción">Introducción</h2>
+<p>Las organizaciones de todo tipo, hace mucho tiempo que han reconocido la necesidad de almacenar datos y transformarlos en información. Esta información debe ser administrada, planificada, controlada y tratada como un activo. Este activo debe ser manipulado en forma efectiva y eficiente.</p>
+<p>La tarea de las disciplinas de Inteligencia de Negocios (Business Intelligence), Analisis de Datos (data Analytics) y Ciencia de Datos (Data Science) es tomar unos ciertos datos y transformarlos en información para describir, pronosticar y generar conocimiento a partir de ellos. Para finalmente tomar decisiones basados en esos datos.</p>
+<p>Sin embargo, para lograr estas metas se deben tener las capacidades de diseñar en forma correcta los datos a capturar para esa generación de conocimiento. ¿Se deben colectar todos los datos?, ¿cómo discriminar aquellos relevantes? ¿cómo muestrear adecuadamante si no dispongo del universo de datos? ¿cuando se debe efectuar métodos de imputación de datos?.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/datoinfo0.png" class="img-fluid figure-img"></p>
+<figcaption>Pirámide de la información.</figcaption>
+</figure>
+</div>
+</section>
+<section id="datos" class="level2">
+<h2 class="anchored" data-anchor-id="datos">Datos</h2>
+<p>Definamos datos como <strong>Información concreta sobre hechos, elementos, etc., que permite estudiarlos, analizarlos o conocerlos</strong>.</p>
+<p>“los datos del censo; el análisis aportó datos de gran interés respecto a la génesis de esta fobia; cada ficha contiene los datos comerciales, fiscales y estadísticos de cada proveedor; estos datos configuran una densidad de población débil, aunque ello no descarta que haya núcleos muy poblados y muchas regiones vacías”</p>
+<p><strong>Cifra, letra o palabra que se suministra a la computadora como entrada y la máquina almacena en un determinado formato</strong>.</p>
+<p>“al introducir palabras o números en una hoja de cálculo, la computadora los procesa y los almacena como datos en código binario”</p>
+<p>Es una descripción o imagen relacionados con un hecho, evento, personas, objetos u otras entidades del mundo real. El significado del dato cambia dependiendo dentro del contexto en que se encuentre. El siguiente ejercicio es el que usualmente utilizo en mis clases para la noción del concepto de datos.</p>
+<ul>
+<li><p>Considere el número <strong>25…</strong></p></li>
+<li><p>Ahora… <strong>25 “Kilos”</strong></p></li>
+<li><p>Y ahora… <strong>25 “kilos” de “papas”</strong></p></li>
+<li><p>Finalmente… <strong>25 “kilos” de “papas” en “mercado” de “Concepción”</strong></p></li>
+</ul>
+<section id="contexto" class="level3">
+<h3 class="anchored" data-anchor-id="contexto">Contexto</h3>
+<p>La búsqueda de datos para la generación de información se da dentro de cierto ámbito dentro de toda organización. Las organizaciones de cualquier índole utilizan e intercambian información, con sus usuarios/clientes y proveedores.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/informacion.jpg" class="img-fluid figure-img"></p>
+<figcaption>Posición de base de datos dentro de la organización.</figcaption>
+</figure>
+</div>
+<p>En este nuevo contexto de alta dependencia de datos (eficientes y de calidad) se crean nuevos perfiles profesionales que suman a los ya tradicionales existentes en décadas pasadas en el ámbito del uso de las tecnologías de información.</p>
+</section>
+<section id="orígenes-de-datos" class="level3">
+<h3 class="anchored" data-anchor-id="orígenes-de-datos">Orígenes de datos</h3>
+<p>La importancia de los datos es clara en su objetivo de otorgar información para la toma de decisiones, las que pueden llevar a una organización al éxito o fracaso de su gestión. Ahora bien, si es tan importante los datos también lo debeira ser el orígen de donde estos son extraídos, origenes que también han evolucionado en el tiempo. Hace no mas de 10 o más años la extracción de datos proviene de bases de datos expresamente diseñadas para ello, de planillas de cálculo (Excel preferentemente) llenadas a mano por usuarios destinados a ello y por formularios tanto papel como electrónicos, que finalmente terminaban en las bases y planillas antes mencionadas.</p>
+<p>Actualmente, se suman a las fuentes antes mencionadas un amplio número</p>
+<p><strong>Bases de datos</strong></p>
+<p>Una base de datos es un conjunto organizado de datos que se almacenan y gestionan en un sistema informático, permitiendo que la información se pueda buscar, consultar y actualizar fácilmente cuando se necesite.</p>
+<pre><code>-- Seleccionar toda la información de clientes de Chile.
+SELECT * FROM clientes WHERE pais = 'Chile'</code></pre>
+<p><strong>Archivos csv</strong></p>
+<p>El formato más asequible para acceder a datos es a través del intercambio de archivos de texto y separados por coma. Este es formato aceptado globalmente y es el tipo de intercambio de datos más utilizado entre dispositivos.</p>
+</section>
+<section id="perfiles-y-roles-profesionales" class="level3">
+<h3 class="anchored" data-anchor-id="perfiles-y-roles-profesionales">Perfiles y roles profesionales</h3>
+<p>La complejidad de la obtención de datos y por tanto la complejidad de la información resultante ha llevado al desarrollo de un mayor número de perfiles especialistas, que hasta hace unos 10 años no se veían en el mercado profesional. El aumento de las fuentes de datos de todo tipo y forma, los nuevas formas de almacenamiento y de procesamiento han establecido una necesidad de mayores especialistas.</p>
+<section id="director-de-datos-cdo" class="level4">
+<h4 class="anchored" data-anchor-id="director-de-datos-cdo">Director de Datos (CDO)</h4>
+<p>El Director de datos (<strong>Chief Data Officer</strong>) <span class="citation" data-cites="cdo">[@cdo]</span> es un nuevo rol dentro de aquellas organizaciones[^01-intro-1] con una alta especialización y valoración de los datos. Es un puente entre el área comercial estratégica y el área TI que combina capacidades tecnológicas, estadísticas y gerenciales entre otras:</p>
+<p><a href="https://www2.deloitte.com/uy/es/pages/deloitte-analytics/articles/the-chief-data-officer.html" class="uri">https://www2.deloitte.com/uy/es/pages/deloitte-analytics/articles/the-chief-data-officer.html</a></p>
+<ul>
+<li>Entiende los datos y las necesidades de la empresa respecto a los datos.</li>
+<li>Decide qué datos deben almacenarse en la base de datos.</li>
+<li>Establece políticas para mantener y gestionar los datos almacenados.</li>
+<li>Gestiona los datos como valor estratégico de la organización.</li>
+<li>Establece las bases para el aseguramiento de la calidad de los datos.</li>
+</ul>
+<p>El conocimiento a cabalidad del área de negocios de la organización es fundamental para este perfil, ya que es quién guía a traves de todo el proceso de generación de información. Define los objetivos para la generación de valor del negocio respecto de la información y hace parte la analítica dentro del objetivo de negocio.</p>
+<blockquote class="blockquote">
+<p>El rol fundamental del CDO se enfoca en sustentar la “visión del negocio” con información.</p>
+</blockquote>
+<p>También dentro de su área de acción se encuentra la gobernanza de los datos y el establecimiento de las políticas de uso de la información. Pasan de un rol de administrador a uno más estratégico e innovador que permite responder a los cambios tecnológicos cambiando sus ambiente de datos en la nuevas áreas de big data, automatización y aprendizaje de máquinas.</p>
+<p>El CDO dentro de la gobernanza de datos asesora en la implementación de políticas y coordina tanto lo requisitos como el control de la información sobre los restantes actores.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/cdo.png" class="img-fluid figure-img"></p>
+<figcaption>Áreas de un CDO.</figcaption>
+</figure>
+</div>
+<p>La creación de un CDO generalmente va acompañada de nuevos perfile asociados dentro de una estrategia de gobierno de datos. Estos nuevos perfiles son por lo general, el dueño de los datos y el custodio de datos.</p>
+</section>
+<section id="dueño-de-los-datos-data-owner" class="level4">
+<h4 class="anchored" data-anchor-id="dueño-de-los-datos-data-owner"><strong>Dueño de los Datos (Data owner)</strong></h4>
+<p>El dueño de los datos dentro de la organización es un profesional interno de la organización, generalmente conocedor a un alto nivel del negocio de esta, de forma de poder establecer los datos correctos a ser utilizados y las mejoras necesarias para el crecimiento de la organización.</p>
+<p>Sus funciones no excluyentes son regularmente:</p>
+<ul>
+<li>Precisión y exactitud de información propia</li>
+<li>Definir reglas de uso y coordinación de todos los datos</li>
+<li>Identifica errores</li>
+<li>Define los niveles de calidad y de seguridad de la información</li>
+<li>Responsable de la confidencialidad y privacidad de la información</li>
+<li>Establece el valor de los datos para la organización</li>
+</ul>
+</section>
+<section id="custodio-de-datos-data-steward" class="level4">
+<h4 class="anchored" data-anchor-id="custodio-de-datos-data-steward"><strong>Custodio de Datos (Data Steward)</strong></h4>
+<p>Con un aspecto más operativo que estratégico el custodio de los datos es aquél perfil que tiene entre sus responsabilidades la consistencia y accesibilidad a los datos que la organización requiere. Aparece en todas las definiciones aceptadas para este perfil (que pueden encontrarse en Internet), como un intermediario entre el Data Owner y el usuario final de los datos. Y que en organizaciones pequeñas puede estar asociadas al mismo perfil de un Data Owner.</p>
+<p>En su nivel operativo se encarga de:</p>
+<ul>
+<li>Captura, almacena y retiene información</li>
+<li>Calidad y disponibilidad</li>
+<li>Seguridad</li>
+</ul>
+</section>
+<section id="data-owner-vs-data-steward" class="level4">
+<h4 class="anchored" data-anchor-id="data-owner-vs-data-steward">Data owner vs data steward</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 44%">
+<col style="width: 39%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Aspecto</th>
+<th>Data Owner (Dueño de los Datos)</th>
+<th>Data Steward (Custodio de los Datos)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Rol principal</strong></td>
+<td>Responsable estratégico de los datos</td>
+<td>Responsable operativo de los datos</td>
+</tr>
+<tr class="even">
+<td><strong>Enfoque</strong></td>
+<td>Definición, valor y políticas de los datos</td>
+<td>Implementación, calidad y gestión diaria de los datos</td>
+</tr>
+<tr class="odd">
+<td><strong>Responsabilidades</strong></td>
+<td>- Define reglas de uso<br>- Establece valor y confidencialidad<br>- Toma decisiones sobre los datos</td>
+<td>- Garantiza calidad y disponibilidad<br>- Aplica políticas<br>- Supervisa acceso y seguridad</td>
+</tr>
+<tr class="even">
+<td><strong>Conocimiento</strong></td>
+<td>Profundo conocimiento del negocio y contexto organizacional</td>
+<td>Conocimiento técnico y procedimental de los datos</td>
+</tr>
+<tr class="odd">
+<td><strong>Toma de decisiones</strong></td>
+<td>Decide qué datos se recolectan y cómo se usan</td>
+<td>Ejecuta y asegura el cumplimiento de las decisiones del Data Owner</td>
+</tr>
+<tr class="even">
+<td><strong>Similitudes</strong></td>
+<td>Ambos buscan asegurar la calidad, seguridad y utilidad de los datos para la organización. Colaboran estrechamente para garantizar el correcto gobierno de los datos.</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>En resumen, el Data Owner define el “qué” y el “por qué” de los datos, mientras que el Data Steward se encarga del “cómo” y el “quién” en la gestión diaria. Ambos roles son fundamentales en organizaciones orientadas a datos (data driven).</p>
+</section>
+<section id="arquitecto-de-datos-data-architect---da" class="level4">
+<h4 class="anchored" data-anchor-id="arquitecto-de-datos-data-architect---da"><strong>Arquitecto de Datos (Data Architect - DA)</strong></h4>
+<p>Es tal la complejidad actual de los datos respecto de sus orígenes así como el volumen de datos que requieren ser transados, que se hace necesaria la participación de un nuevo perfil, el arquitecto de datos. Por sobre los perfiles mencionados anteriormente, es el DA el encargado de diseñar y orquestar las plataformas necesarias para el procesamiento masivo de datos para su transformación en información. Es un perfil netamente operativo encargado de construir y mantener la infraestructura de los datos de la organización.</p>
+<p>En general el DA es el encargado de diseñar y planificar el sistema de infraeastructura de datos y es el ingeniero de datos quien la construye, sin embargo en organizaciones pequeñas estos roles son realizados por el mismo cargo. Por lo que las funciones de un ingeniero de datos, que se detalla más adelante, se pueden consignar a un DA.</p>
+<p>Sus funciones principales abarcan:</p>
+<ul>
+<li>Diseño de modelos de datos según las reglas de negocio</li>
+<li>Desarrollo de bases de datos estableciendo el modelo conceptual, lógico y físico</li>
+<li>Determinar qué tecnologías va a usar y cómo va a hacerlo</li>
+<li>Crear procedimientos para garantizar la exactitud y la accesibilidad de los datos</li>
+<li>Seleccionar los almacenes de datos y las fuentes de los mismos</li>
+<li>Gestión del flujo de trabajo o workflow. Asegurarse de tener la velocidad de procesamiento y el acceso al almacenamiento para respaldarlo es esencial</li>
+<li>Encargado y principal responsable de que las tres fases de los procesos ETL se cumplan en los tiempos establecidos y se realicen correctamente</li>
+<li>Auditorías de datos: Realización de informes y evaluación del trabajo de forma habitual y asegurar la integridad de los datos.</li>
+</ul>
+</section>
+<section id="ingeniero-de-datos-data-engineer---de" class="level4">
+<h4 class="anchored" data-anchor-id="ingeniero-de-datos-data-engineer---de">Ingeniero de Datos (Data Engineer - DE)</h4>
+<p>El trabajo del ingeniero de datos es “la representación y el movimiento de datos para que sean consumibles y utilizables”, dijo Pope. El ingeniero de datos, debe poder tomar los datos sin procesar, limpiarlos, moverlos a una base de datos, etiquetarlos y, en general, asegurarse de que estén listos para la siguiente etapa del proceso.</p>
+<p>Con un amplio manejo de Big Data, este perfil es sumamente técnico. Los ingenieros de datos se encuentran entre los desarrolladores de aplicaciones y los científicos de datos. Se encargan de diseñar, construir y gestionar los datos y la infraestructura necesaria para almacenarlos y procesarlos. Construyen la base tecnológica para que los científicos de datos y analistas puedan realizar sus tareas. Por lo tanto, son los responsables de mantener sistemas escalables, con alta disponibilidad y rendimiento, integrando nuevas tecnologías y desarrollando el software necesario.</p>
+<p>Deben conocer las tecnologías Big Data Apache Spark, Scala, Docker, Hadoop, HDFS y otras, y entender cómo se integran sus tecnologías y las formas de procesar, transformar y tratar los datos con herramientas de ingesta y los procesos ETL. Además, deben saber cómo mover datos hacia y desde los sistemas de Big data y la implementación de bases de datos para grandes volumenes de datos. Entre sus funciones también se encuentra dar apoyo y facilitar el trabajo a analistas y científicos de datos, así como al negocio.</p>
+<p>ETL. Procesos de extracción, transformación y carga de datos.</p>
+<p>Como se trata de procesos complejos y muy integrados se requiere además un manejo de lenguajes de scripting y conocer procesos de automatización (mediante Python u otro lenguaje) e interacciones con APIs y fuentes de datos externas.</p>
+<p>Por definición, el Big Data suele tener lugar en sistemas distribuidos, que es otro de los conocimientos fundamentales para un buen ingeniero de datos. Estos sistemas tienen numerosas particularidades en torno a la replicación de datos, consistencia, tolerancia a fallos, particionado y concurrencia. En este punto se englobarían tecnologías como HDFS, Hadoop o Spark.</p>
+<p>Habilidades Fundamentales Tecnologías y servicios Cloud. La demanda de estas tecnologías no para de crecer, y es que cada vez es más frecuente iniciar proyectos de migración a la nube en las empresas. Un buen ingeniero de datos debe conocer y tener experiencia en el uso de servicios cloud, sus ventajas, desventajas y sus aplicación en proyectos Big Data. Al menos debería estar familiarizado con una plataforma como Azure o AWS ya que son las más extendidas. Además, debe conocer buenas prácticas en cuanto a seguridad de los datos y virtualización. Recuerda que estas tecnologías han venido para quedarse e invertir tiempo en formarse es siempre una buena idea.</p>
+<p>Los Ingenieros de Datos también deben conocer el funcionamiento y uso de las bases de datos. También las diferencias que existen entre bases de datos relacionales y NoSQL. El lenguaje básico para interactuar con estas bases de datos es SQL, por lo que también debe estar familiarizado con escribir consultas de lectura y manipulación de datos. Además, debe entender la diferencia entre los tipos de bases de datos NoSQL y los casos de uso para cada uno de ellos.</p>
+<p>Uno de los roles principales de los ingenieros de datos es crear pipelines de datos con tecnologías ETL y frameworks de orquestación. En esta sección podríamos enumerar muchas tecnologías pero el ingeniero de datos debería conocer o sentirse cómodo con algunas de las más conocidas como puede ser <a href="https://nifi.apache.org/">NiFi</a> o <a href="https://airflow.apache.org/">Airflow</a>.</p>
+<p>Las actividades esenciales para este perfil profesional son entre otras y mezcladas habitualmente con las del DA:</p>
+<ul>
+<li>Diseño de modelos de datos</li>
+<li>Desarrollo de bases de datos</li>
+<li>Tecnologías Big Data</li>
+<li>Seleccionar los almacenes de datos y las fuentes de los mismos</li>
+<li>Gestión del flujo de trabajo (workflow). Asegurarse de tener la velocidad de procesamiento y el acceso al almacenamiento para respaldarlo es esencial</li>
+<li>Responsabilidad sobre las tres fases de los <a href="https://www.inesdi.com/blog/etl-que-es-procesos-y-herramientas/">procesos ETL</a> se cumplan en los tiempos establecidos y se realicen correctamente</li>
+<li>Auditorías de datos: realización de informes y evaluación del trabajo de forma habitual</li>
+<li>Manejo de herramientas de gestión: Apache Spark, Hadoop, Airflow, etc.</li>
+</ul>
+</section>
+<section id="analista-de-datos-data-analyst" class="level4">
+<h4 class="anchored" data-anchor-id="analista-de-datos-data-analyst">Analista de Datos (Data Analyst)</h4>
+<p>Este perfil profesional esta abocado a la recopilación y transformación de datos para la toma de decisiones empresariales. Para ello se vale del uso de estadística y de herramientas de gestión de datos para presentar hechos y respuestas a preguntas del negocio. Las habilidades de comunicación son relevantes para este perfil junto al conocimiento del negocio, ya que debe informar y explicar la información obtenida para la toma de decisiones.</p>
+<p>Responde a preguntas tales como ¿cuántas ventas se realizaron este mes? ¿cuáles han sido los productos más solicitados y donde?, ¿cuál es la proyección de ingresos para 2024?, ¿qué volumen de contactos se ha transformado en ventas?, ¿qué modelo de ventas ha sido más exitoso?.</p>
+<p>Este perfil profesional posee una alta capacidad para la gestión de captura de datos y la generarción de procesos de transformación de datos, con conocimientos de uso de bases de datos, captura de datos mediante SQL y Excel, y el uso de herramientas de programación como Python y R entre otras.</p>
+<p>La herramienta más poderosa de un analista es un gestor de reportes, del tipo <a href="https://powerbi.microsoft.com/es-es/desktop/">Power BI</a> o <a href="https://www.tableau.com/es-mx">Tableau</a> (entre otros), que permite realizar todo tipo de informes o completos paneles de información, orientados a comunicar de forma efectiva los resultados con el fin de la toma de decisiones.</p>
+<p>Las actividades fundamentales o capacidades de este tipo de perfil son:</p>
+<ul>
+<li>Preprocesamiento de datos</li>
+<li>Análisis exploratorio</li>
+<li>Estadística descriptiva e inferencial</li>
+<li>Visualización de datos</li>
+<li>Comunicación de resultados, siendo esta tal vez la función más relevante para los fines de la organización</li>
+</ul>
+</section>
+<section id="científico-de-datos-data-scientist" class="level4">
+<h4 class="anchored" data-anchor-id="científico-de-datos-data-scientist">Científico de Datos (Data Scientist)</h4>
+<p>Un <strong>Científico de Datos</strong> es un profesional especializado en analizar grandes volúmenes de datos para descubrir patrones, tendencias y relaciones ocultas que permitan generar conocimiento y aportar valor a la organización. Utiliza herramientas de programación, estadística, matemáticas y machine learning para transformar datos en información útil para la toma de decisiones estratégicas.</p>
+<p>A diferencia de un analista de datos un científico de datos está orientado a resolver problemas del tipo de descubrimiento de patrones. Para lo cual se vale de herramientas de programación, estadística probabilística y técnicas de aprendizaje automático.</p>
+<p>No es el volumen de datos lo que distingue a un analista de un científico (de datos) sino el objetivo a cumplir con esos datos. El analista presenta el estado actual y posiblemente la proyección simple (inferencia) de lo que puede ocurrir en un futuro cercano. En tanto, el científico de datos debe realizar descubrimiento de patrones, plantear hipótesis y verificarlas (uso del método científico).</p>
+<p><strong>Principales funciones dentro de una organización data driven:</strong></p>
+<ul>
+<li>Formular preguntas y problemas de negocio que puedan resolverse con datos.</li>
+<li>Recopilar, limpiar y preparar datos provenientes de diversas fuentes.</li>
+<li>Analizar datos mediante técnicas estadísticas y algoritmos de aprendizaje automático.</li>
+<li>Desarrollar modelos predictivos y de clasificación para anticipar comportamientos o resultados.</li>
+<li>Validar y evaluar el desempeño de los modelos desarrollados.</li>
+<li>Comunicar hallazgos y resultados de manera clara y efectiva a los distintos actores de la organización.</li>
+<li>Colaborar con equipos multidisciplinarios (negocio, ingeniería, analistas) para implementar soluciones basadas en datos.</li>
+<li>Promover la cultura del uso de datos en la toma de decisiones (data driven).</li>
+<li>Mantenerse actualizado en nuevas tecnologías, herramientas y metodologías del área.</li>
+</ul>
+</section>
+<section id="administrador-de-base-de-datos-dba" class="level4">
+<h4 class="anchored" data-anchor-id="administrador-de-base-de-datos-dba">Administrador de Base de datos (DBA)</h4>
+<p>El DBA (Data Base Administrator) es el profesional informático encargado de la administración de una o varias bases de datos gestionando su uso y funcionamiento. Es responsable por el diseño de la base de datos y la gestión de ella, fijando normas que resguardan tanto la seguridad como la integridad de ellas.</p>
+<p>Este perfil es netamente operativo a cargo de la infraestructura directa asociada a las bases de datos de la organización. Siendo el responsable de la mantención de la estructura y las políticas de seguridad de las bases. Es este perfil el gestiona además los roles de acceso y permisos asociados a los usuarios de la organización definidos por el DA y/o el DO.</p>
+<p>Este perfil es, en última instancia el encargado de la creación, edición de las bases de datos y su estructura. También de la construcción de los procedimientos y funciones requeridos para su funcionamiento.</p>
+<p><strong>Funciones</strong></p>
+<ul>
+<li>Crea la base de datos.</li>
+<li>Implementa los controles necesarios para que se respeten las políticas establecidas por el administrador de datos.</li>
+<li>Es el responsable de garantizar que el sistema obtenga las prestaciones deseadas. Presta servicios técnicos.</li>
+<li>Mantener la base de datos disponible y actualizada.</li>
+<li>Realizar los respaldos de seguridad. Define políticas de seguridad y de respaldo.</li>
+<li>Disponer del accesos a los datos desde las aplicaciones.</li>
+<li>Mantener la seguridad de los datos.</li>
+<li>Diseñar y administrar la estructura de los datos.</li>
+<li>Monitorear la actividad de los datos.</li>
+<li>Se asegura de que la comunicación del sistema con la base de datos sea expedita.</li>
+</ul>
+<p>Los Administradores de Bases de Datos son responsables del manejo, mantenimiento, desempeño y de la confiabilidad de bases de datos. Asimismo, están a cargo de la mejora y diseño de nuevos modelos de las mismas. Manejar una base de datos implica recolectar, clasificar y resguardar la información de manera organizada, por ello, estos profesionales velan por garantizar que la misma esté debidamente almacenada y segura, además de que sea de fácil acceso cuando sea necesario.</p>
+</section>
+<section id="desarrollador-de-base-de-datos" class="level4">
+<h4 class="anchored" data-anchor-id="desarrollador-de-base-de-datos">Desarrollador de Base de Datos</h4>
+<p>Personas como analistas de sistemas y programadores que diseñan nuevos programas de aplicación para los usuarios finales.</p>
+<p>Los programadores de sistemas informáticos escriben programas para controlar el funcionamiento interno de los ordenadores, lo que implica diseñar programas que sean eficientes, rápidos y versátiles. Dedican mucho tiempo a probar los programas, y también puede instalar, personalizar y dar soporte a estos sistemas operativos.</p>
+<p>El profesional que debiera asumir este rol es:</p>
+<ul>
+<li>Ingeniero en informática</li>
+<li>Programador</li>
+<li>Analista programador</li>
+</ul>
+</section>
+<section id="usuario-final" class="level4">
+<h4 class="anchored" data-anchor-id="usuario-final">Usuario final</h4>
+<p>Los usuarios finales son las personas que utilizan los datos para su trabajo cotidiano y no son necesariamente del área de la informática. Normalmente no utilizan la base de datos directamente, sino aplicaciones creadas para ellos a fin de facilitar la manipulación de los datos. Estos usuarios sólo acceden a ciertos datos del total.</p>
+<p>Si bien el usuario final es el receptor de lso datos/información preparada por los perfiles antes mencionados, también en su actividad diaria pueden generar necesidades para la toma de nuevos y/o mejorados datos para cumplimentar sus funciones.</p>
+</section>
+</section>
+<section id="la-información" class="level3">
+<h3 class="anchored" data-anchor-id="la-información">La información</h3>
+<p>Información son datos que han sido organizados o preparados en una forma adecuada para apoyar la toma de decisiones: Por ejemplo una lista de productos y su stock sin ningún orden son datos, pero un lista de productos ordenados por stock (de menor a mayor) representa información para el encargado de compras de un supermercado.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/conocimiento.jpg" class="img-fluid figure-img"></p>
+<figcaption>Los datos por si solos no conducen a información.</figcaption>
+</figure>
+</div>
+</section>
+<section id="discusión" class="level3">
+<h3 class="anchored" data-anchor-id="discusión">Discusión</h3>
+<p>¿Puede en un momento dado un objeto considerarse como dato y en otro momento como información? ¿Por qué?</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/datoinfo.png" class="img-fluid figure-img"></p>
+<figcaption>Datos e información.</figcaption>
+</figure>
+</div>
+<p><strong>Tarea individual</strong></p>
+<p>¿Es capaz de presentarse a sí mismo sin entregar información si no solo datos?</p>
+</section>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
