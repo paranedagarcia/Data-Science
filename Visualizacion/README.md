@@ -6,6 +6,7 @@
 
 **Contenidos:**
 1. Principios de visualización
-2. Gráficos con Matplotlib, Seaborn
-3. Dashboards básicos con Plotly Express
-4. Storytelling con datos
+2. [Matplotlib](Matplotlib.ipynb)
+3. [Seaborn](Seaborn.ipynb)
+4. Dashboards básicos con Plotly Express
+5. Storytelling con datos

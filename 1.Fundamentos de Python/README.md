@@ -14,20 +14,12 @@ Introducir la lógica computacional y sintaxis básica de Python.
 
 **Contenidos:**
 
-1.  [Variables, tipos de datos, operadores](Python.ipynb)
-
-2.  [Estructuras de control](control.ipynb) (if, for, while)
-
-3.  [Funciones y errores](funciones.ipynb)
-
-4.  Listas, diccionarios, tuplas
-
+1.  [Variables, tipos de datos, operadores](1.Python.ipynb)
+2.  [Estructuras de control](2.control.ipynb) (if, for, while)
+3.  [Funciones y errores](3.funciones.ipynb)
 5.  Archivos CSV y TXT
-
 6.  Librerías básicas: math, datetime, os
-
 7.  Librerías especializadas:
-
-    -   [Pandas](Pandas.ipynb)
-
     -   [Numpy](Numpy.ipynb)
+    -   [Pandas](Pandas.ipynb)
+   
