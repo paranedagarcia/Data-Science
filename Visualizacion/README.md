@@ -9,4 +9,8 @@
 2. [Matplotlib](Matplotlib.ipynb)
 3. [Seaborn](Seaborn.ipynb)
 4. Dashboards básicos con Plotly Express
-5. Storytelling con datos
+5. [Storytelling con datos](Storytelling.ipynb)
+
+
+
+## Elementos generales de visualización
