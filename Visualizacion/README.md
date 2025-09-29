@@ -14,3 +14,13 @@
 
 
 ## Elementos generales de visualización
+
+**Anatomía general de un gráfico**
+
+La gran mayoría de gráficos comparten los mismos elementos:
+- Un área de graficos
+- Ejes, que contienen los valores, categorías y marcas, mayores y menores
+- Valores, contenidos en líneas o barras u otros
+
+![](../images/plt.anatomia.png)
+
