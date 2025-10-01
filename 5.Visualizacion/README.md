@@ -24,3 +24,5 @@ La gran mayoría de gráficos comparten los mismos elementos:
 
 ![](../images/plt.anatomia.png)
 
+Por lo que el aprendizaje en uno de ellos facilita aprender otro nuevo.
+

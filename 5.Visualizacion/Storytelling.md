@@ -5,18 +5,34 @@
 
 El storytelling con datos, o data storytelling, representa una evolución fundamental en la comunicación de información dentro del ámbito de la ciencia de datos. No se trata simplemente de presentar cifras o crear gráficos atractivos; es una disciplina que combina tres pilares interconectados para transformar datos complejos en mensajes comprensibles, memorables y accionables. Los tres elementos clave son los datos, la visualización y la narrativa. Los datos proporcionan la base empírica y la evidencia factual sobre la que se asienta toda la historia. La visualización actúa como el vehículo que ilumina y organiza esta información, haciéndola tangible y fácilmente digestible. Finalmente, la narrativa es el hilo conductor que da contexto, estructura y significado a los datos y las visualizaciones, conectando emocionalmente con la audiencia y guiándola hacia una conclusión o acción deseada.
 
+![](../images/st-sap-panel.png)
+*https://www.sap.com/spain/products/data-cloud/cloud-analytics.html*
+
 En su esencia, el objetivo principal del data storytelling es ir más allá de la simple transmisión de hechos para lograr un impacto duradero. Se busca que la audiencia no solo entienda la información presentada, sino que también la recuerde y, crucialmente, actúe en consecuencia. Este enfoque reconoce que las personas procesan y retienen mejor la información cuando está integrada en una historia coherente. Como afirma Jennifer Aaker, profesora de marketing en la Universidad de Stanford, las historias son inherentemente más memorables que los hechos aislados. De manera similar, Jerome Bruner sostiene que el relato es una poderosa estructura cognitiva para dar sentido a la experiencia humana. Por lo tanto, el data storytelling no es meramente una técnica de presentación, sino una estrategia de comunicación diseñada para influir y persuadir.
 
 La diferencia entre un análisis exploratorio de datos (EDA) y uno explicativo es fundamental para comprender el propósito del storytelling. El EDA es un proceso de descubrimiento inicial donde el analista investiga los datos sin una idea preconcebida, buscando patrones, anomalías y relaciones. Es un viaje de descubrimiento personal para quien realiza el análisis. En contraste, el data storytelling es un ejercicio de comunicación dirigida. Aquí, el analista ya ha identificado una historia específica que desea contar y una audiencia que debe recibir un mensaje claro y específico. El objetivo no es explorar, sino comunicar una narrativa coherente que respalde una decisión o cambie una percepción. Esta distinción es vital para los estudiantes, ya que marca la transición desde el rol de científico de datos (quien explora) al de comunicador de datos (quien narra).
 
 El valor estratégico del data storytelling se manifiesta en múltiples beneficios. Mejora la comprensión y hace que los datos sean memorables, lo cual es crucial para asegurar que los hallazgos perduren en la mente de la audiencia. Ayuda a convencer y a tomar decisiones informadas, ya que presenta el análisis de forma coherente y persuasiva. Además, construye confianza y generación de compromiso (engagement), simplifica la información compleja y refuerza la autoridad del analista. Según estudios, la mayoría de las empresas utilizan datos para optimizar la asignación de recursos, reduciendo costos y mejorando la eficacia, un proceso que se potencia enormemente con un buen storytelling. Herramientas que democratizan el acceso a los datos dependen de la capacidad de los usuarios para comunicar sus hallazgos de manera efectiva a través de narrativas claras. En última instancia, el data storytelling es la herramienta que permite que los resultados de años de investigación y modelado lleguen a ser prácticas operativas, estrategias empresariales y cambios tangibles.
 
+## El trabajo previo
+
+El proceso de storytelling debe iniciar con las respuestas a las siguientes preguntas.
+
+- ¿Quién es el público de la historia?
+- ¿Cuál es el objetivo?
+- ¿Qué KPI deberíamos utilizar?
+- ¿Qué datos e imágenes transmiten mejor esta información?
+- ¿Cuándo (durante qué período) deben contarse los datos?
+- ¿Dónde residen los datos?
+- ¿Qué tendencias revelan los datos?
+- ¿Por qué está ocurriendo esto (contexto)?
+
 ## La Estructura Narrativa
 **Construyendo Historias que Informan y Persuaden**
 
 La estructura narrativa es el esqueleto que soporta cualquier historia exitosa, y en el data storytelling, proporciona la coherencia necesaria para guiar a una audiencia a través de datos complejos hasta una conclusión clara. Una de las estructuras más citadas y aplicables es la tricotomía de situación-inicio-problema-resolución, que divide la narrativa en tres fases fundamentales. La primera fase, la situación inicial, establece el escenario, introduce a los personajes (que pueden ser KPIs, departamentos o mercados) y describe el estado de cosas antes de que ocurriera algo significativo. La segunda fase, el surgimiento de problemas o complicaciones, es donde se presenta el conflicto central: una tendencia negativa, un valor atípico, una brecha insostenible o una oportunidad inesperada que requiere atención. Finalmente, la tercera fase ofrece una resolución, proponiendo soluciones, acciones recomendadas o una nueva perspectiva basada en los hallazgos de los datos. Esta estructura sencilla pero poderosa da sentido a los datos y facilita la comprensión, permitiendo a la audiencia seguir el argumento sin sentirse abrumada.
 
-Otras estructuras narrativas, adaptadas al lenguaje corporativo, ofrecen marcos similares. La estructura de inicio-desarrollo-desenlace es una variante directa que enfatiza la progresión de una premisa inicial a una conclusión. Una adaptación más formal es la estructura de la pirámide de Freytag, común en la literatura dramática, que se traduce perfectamente al mundo de los negocios como Introducción/Contexto -> Conflicto -> Resolución. Esta estructura puede desglosarse en cuatro fases aún más detalladas: describir personajes y objetivos, establecer el contexto, introducir el conflicto o problema y proponer soluciones. El estándar IBCS (International Business Communication Standards) sigue una lógica muy parecida, proponiendo una exposición (situación actual), un conflicto (el problema o desafío) y una resolución (la solución o mensaje principal). Para los estudiantes, estas estructuras no son reglas rígidas, sino guías flexibles que deben adaptarse al tema y a la audiencia específicos.
+Otras estructuras narrativas, adaptadas al lenguaje corporativo, ofrecen marcos similares. La estructura de inicio-desarrollo-desenlace es una variante directa que enfatiza la progresión de una premisa inicial a una conclusión. Una adaptación más formal es la estructura de la **pirámide de Freytag**, común en la literatura dramática, que se traduce perfectamente al mundo de los negocios como Introducción/Contexto -> Conflicto -> Resolución. Esta estructura puede desglosarse en cuatro fases aún más detalladas: describir personajes y objetivos, establecer el contexto, introducir el conflicto o problema y proponer soluciones. El estándar IBCS (International Business Communication Standards) sigue una lógica muy parecida, proponiendo una exposición (situación actual), un conflicto (el problema o desafío) y una resolución (la solución o mensaje principal). Para los estudiantes, estas estructuras no son reglas rígidas, sino guías flexibles que deben adaptarse al tema y a la audiencia específicos.
 
 ### La Pirámide de Freytag
 La Pirámide de Freytag es un modelo de estructura narrativa desarrollado por el dramaturgo alemán Gustav Freytag, que divide un drama en cinco secciones: exposición, acción ascendente, clímax, acción descendente y desenlace (o catástrofe). Este marco, inspirado en la estructura de Aristóteles y Horacio, ayuda a analizar y planificar cómo la tensión y el conflicto se desarrollan en una historia, presentando un patrón clásico para la narrativa, especialmente en las tragedias. 
@@ -49,7 +65,6 @@ Conocer profundamente a la audiencia es el principio rector y el pilar más impo
 
 La personalización de la narrativa es crucial. Diferentes roles dentro de una organización tienen diferentes preocupaciones y necesitan información diferente. Un director de ventas probablemente estará más interesado en métricas de conversión y retorno de la inversión (ROI) de una campaña, mientras que un director de recursos humanos buscará datos sobre la tasa de rotación de empleados o la efectividad de los programas de capacitación. Por lo tanto, el analista debe segmentar su audiencia y adaptar el mensaje en consecuencia. Esto implica no solo elegir los indicadores de rendimiento clave (KPIs) adecuados, sino también ajustar el nivel de detalle técnico y el tono de la narrativa. Para una audiencia ejecutiva, el foco debe estar en los resultados, el impacto estratégico y las acciones recomendadas. Para un equipo técnico, podría ser necesario incluir más detalles sobre los modelos utilizados o las limitaciones de los datos.
 
-### Conociendo a tu Audiencia
 **Pregúntate:**
 
 - ¿Qué nivel de conocimiento técnico tiene mi audiencia?
@@ -87,6 +102,9 @@ Ambos usaban los mismos datos, pero con narrativas distintas.
 Además de la función, el conocimiento previo de la audiencia es vital. Si la audiencia ya posee un alto grado de alfabetización en datos, puede manejar visualizaciones más complejas y un mayor nivel de detalle técnico. Sin embargo, si la audiencia es mixta o predominantemente no técnica, es imperativo simplificar la jerga, usar analogías claras y centrarse en los conceptos principales. La meta es siempre hacer que la información sea accesible y memorable para todos los involucrados. Por ejemplo, en un proyecto escolar sobre el comportamiento de compra en Walmart antes de huracanes, el narrador debía usar un lenguaje accesible para conectar con la audiencia desde el principio, destacando el hallazgo sorprendente de que los Pop-Tarts eran el producto más vendido.
 
 El conocimiento de la audiencia también influye en el tipo de producto de visualización que se crea. Un cuadro de mando interactivos destinado a un usuario que realizará un análisis profundo requerirá diferentes características narrativas que un informe estático presentado a un comité de dirección. Los dashboards interactivos pueden beneficiarse de una narrativa más libre, permitiendo a la audiencia explorar los datos por sí misma, mientras que los informes estáticos exigen una secuencia de visualizaciones y texto cuidadosamente planificada para guiar al lector paso a paso. Herramientas como Tableau 'Historias' o Power BI permiten integrar múltiples visualizaciones y paneles en una secuencia narrativa coherente, ideal para presentaciones dirigidas. En última instancia, el éxito del data storytelling depende de la capacidad del analista para ponerse en el lugar de su audiencia, pensar como ellos y comunicar de una manera que resuene con sus prioridades, intereses y nivel de conocimiento.
+
+![](../images/st-sap.jpg "https://www.sap.com/spain/products/data-cloud/cloud-analytics/what-is-data-storytelling.html")
+*https://www.sap.com/spain/products/data-cloud/cloud-analytics/what-is-data-storytelling.html*
 
 ## Visualizando la Historia
 **Principios de Diseño para la Comunicación Clara**
@@ -184,3 +202,5 @@ Storytelling with Data Blog. https://www.storytellingwithdata.com/blog
 
 Mayer, R. E. (2009). Multimedia Learning (2nd ed.). Cambridge University Press.
 → Fundamentos cognitivos sobre cómo las personas aprenden con combinaciones de texto, imágenes y narrativas.
+
+https://www.sap.com/spain/products/data-cloud/cloud-analytics/what-is-data-storytelling.html

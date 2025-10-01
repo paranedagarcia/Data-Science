@@ -7,9 +7,7 @@ Introducir la lógica computacional y sintaxis básica de Python.
 **Resultados de Aprendizaje:**
 
 -   Escribir scripts básicos en Python.
-
 -   Manipular estructuras de datos.
-
 -   Leer y escribir archivos de datos.
 
 **Contenidos:**
@@ -22,4 +20,4 @@ Introducir la lógica computacional y sintaxis básica de Python.
 7.  Librerías especializadas:
     -   [Numpy](Numpy.ipynb)
     -   [Pandas](Pandas.ipynb)
-   
+

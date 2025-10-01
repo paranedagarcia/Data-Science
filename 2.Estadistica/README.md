@@ -19,10 +19,14 @@
 
 ## Variables y escalas
 
-## Markov
 
-[Ver Markov](Markov.ipynb)
+## Teoría de probabilidad
+
 
 ## Probabilidades y Bayes
 
 [Ver Bayes](Bayes.ipynb)
+
+## Cadenas de Markov
+
+[Ver Markov](Markov.ipynb)
